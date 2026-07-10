@@ -1,0 +1,141 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement_bar_UqygXU": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_FdieBR": {
+          "type": "message",
+          "settings": {
+            "text": "Free Australia Wide Shipping On Orders over $150"
+          }
+        }
+      },
+      "block_order": [
+        "message_FdieBR"
+      ],
+      "name": "t:sections.announcement_bar.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "desktop_font_size": 11,
+        "mobile_font_size": 10
+      }
+    },
+    "countdown_condensed_4BV7q4": {
+      "type": "countdown-condensed",
+      "disabled": true,
+      "name": "t:sections.countdown_timer.presets.countdown_timer.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "content": "Promote your current offer",
+        "link_text": "",
+        "link_url": "",
+        "expiration_date": "2026-11-18",
+        "expiration_behavior": "leave",
+        "desktop_justification": "space-between"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_yd7g8U": {
+          "type": "mega_menu",
+          "name": "Collections",
+          "settings": {
+            "menu_item": "Collections",
+            "images_position": "right",
+            "image_1": "shopify://shop_images/D7758BDA-879D-40FD-9F7E-AE34D70EFE54.jpg",
+            "image_1_heading": "<strong>Collections1</strong>",
+            "image_1_text": "Collections1",
+            "image_1_link": "shopify://collections/abayas",
+            "image_2": "shopify://shop_images/11274A0C-A773-4457-8089-85E99B127CD7.jpg",
+            "image_2_heading": "COLLECTIONS2",
+            "image_2_text": "COLLECTIONS2",
+            "image_2_link": "shopify://collections/abayas"
+          }
+        },
+        "mega_menu_KKKtLh": {
+          "type": "mega_menu",
+          "name": "HIJAB",
+          "settings": {
+            "menu_item": "HIJAB",
+            "images_position": "right",
+            "image_1": "shopify://shop_images/29C42A7D-5D57-4FA3-95DD-05CCDECB0C85.jpg",
+            "image_1_heading": "Hijab",
+            "image_1_text": "Hijab",
+            "image_1_link": "",
+            "image_2_heading": "",
+            "image_2_text": "",
+            "image_2_link": ""
+          }
+        },
+        "mega_menu_JeKhjA": {
+          "type": "mega_menu",
+          "name": "DRESSES",
+          "settings": {
+            "menu_item": "DRESSES",
+            "images_position": "right",
+            "image_1": "shopify://shop_images/BB96474F-7B51-4EEA-B9F3-4F46AB3F8CC6.jpg",
+            "image_1_heading": "<strong>Dressses</strong>",
+            "image_1_text": "Dresses",
+            "image_1_link": "",
+            "image_2_heading": "",
+            "image_2_text": "",
+            "image_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_yd7g8U",
+        "mega_menu_KKKtLh",
+        "mega_menu_JeKhjA"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7e75a000-da7f-4bd4-b9fa-4ef1aa71c008",
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "show_separation_border": true,
+        "reduce_padding": true,
+        "logo": "shopify://shop_images/FullLogo_Transparent_NoBuffer_4.png",
+        "logo_max_width": 125,
+        "logo_mobile_max_width": 95,
+        "menu": "main-v2",
+        "sidebar_menu": "main-v2",
+        "customer_account_menu": "customer-account-main-menu",
+        "menu_open_trigger": "hover",
+        "menu_text_font": "heading",
+        "enable_search": true,
+        "sidebar_color_scheme": "scheme-7e75a000-da7f-4bd4-b9fa-4ef1aa71c008",
+        "sidebar_text_font": "body",
+        "sidebar_show_dividers": false,
+        "sidebar_open_second_level_menus": true,
+        "layout": "logo_center_navigation_inline",
+        "show_icons": true,
+        "show_country_selector": true,
+        "show_country_name": false,
+        "show_country_flag": true,
+        "show_locale_selector": false,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/images-removebg-preview.png"
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_UqygXU",
+    "countdown_condensed_4BV7q4",
+    "header"
+  ]
+}

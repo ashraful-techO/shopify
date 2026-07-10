@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "custom_footer_YiWADn": {
+      "type": "custom-footer",
+      "blocks": {
+        "menu_tAGQzT": {
+          "type": "menu",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main"
+          }
+        },
+        "menu_cVWzhD": {
+          "type": "menu",
+          "settings": {
+            "heading": "About Us",
+            "menu": "about-us"
+          }
+        },
+        "menu_3KmR9x": {
+          "type": "menu",
+          "settings": {
+            "heading": "Customer Care",
+            "menu": "customer-account-main-menu"
+          }
+        },
+        "menu_ieAAep": {
+          "type": "menu",
+          "settings": {
+            "heading": "Legal",
+            "menu": "return-policy"
+          }
+        }
+      },
+      "block_order": [
+        "menu_tAGQzT",
+        "menu_cVWzhD",
+        "menu_3KmR9x",
+        "menu_ieAAep"
+      ],
+      "name": "GHLAM custom footer",
+      "settings": {
+        "show_newsletter": true,
+        "newsletter_heading": "JOIN THE GHLAM COMMUNITY",
+        "newsletter_text": "<p>Receive exclusive launches, styling inspiration, and special offers.</p>",
+        "email_placeholder": "Enter your email",
+        "button_label": "SUBSCRIBE",
+        "success_message": "Thank you for joining the GHLAM community.",
+        "logo_text": "GHLAM",
+        "social_heading": "FOLLOW US",
+        "show_desktop_socials": true,
+        "show_mobile_socials": true,
+        "copyright_name": "GHLAM",
+        "copyright_text": "All rights reserved.",
+        "show_payment_icons": true,
+        "background_color": "#f8f3ee",
+        "text_color": "#2b241f",
+        "muted_text_color": "#6f655d",
+        "accent_color": "#b89a5a",
+        "border_color": "#e4d9cd"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-2",
+        "separate_section_with_border": false,
+        "show_social_media": true,
+        "show_payment_icons": true,
+        "show_powered_by_shopify": true,
+        "show_country_selector": true,
+        "show_country_name": true,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "custom_footer_YiWADn",
+    "footer"
+  ]
+}

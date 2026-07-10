@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "variant_image_show_underline": false,
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "complementary_products": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "Pairs well with",
+            "products_count": 2,
+            "show_below_gallery": true,
+            "stack_products": false,
+            "show_quick_buy": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true,
+            "show_below_gallery": false
+          }
+        },
+        "accordion_tmd8bm": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": true,
+            "icon": "none",
+            "title": "WASH & CARE",
+            "content": "<p><strong>APPAREL</strong></p><p>Avoid using a tumble dryer for your garments.<br/><br/>We recommend hand-washing your clothing for best results.<br/><br/><strong>HEADWEAR</strong><br/><br/><em>Modal Hijabs </em><br/><br/>We highly recommend avoiding the use of pins with our modal hijabs, as they are delicate and can be easily damaged by pins. Instead, we recommend using our Hijab Magnet as a safe and effective alternative. Our Hijab Magnet provides a strong hold without damaging the material, allowing you to style your hijab with ease.<br/><br/><em>All Headwear </em><br/><br/>For optimal care of our modal hijabs, we recommend a delicate cold hand wash. Avoid tumble drying and direct sunlight, and instead, dry your hijab in the shade.</p>",
+            "liquid": "",
+            "page": ""
+          }
+        },
+        "accordion_4Qb6eT": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": true,
+            "icon": "none",
+            "title": "SHIPPING & RETURN",
+            "content": "<p><strong>SHIPPING</strong></p><p><em>Domestic </em><br/><br/>Standard Shipping from ($7.99 to $12.99) depending on the weight of the item. Expect your order to arrive within 8-12 business days after dispatch. <br/>Order over $200 we offer free standard delivery </p><p>Express Shipping from ($10.99 to $24.99 )depending on the weight of the item you purchasing: Your order will be delivered within 1-4 business days after dispatch.</p><p></p><p><em>International<br/></em>Shipping cost is calculated based on your region and the weigh of the items you wish to purchase. This will be calculated at checkout. </p><p></p><p><strong>RETURN</strong></p><p>If you decide to return a purchase, please send back the goods to us within 14 days of receiving your order. Upon return, you will be issued a credit note that can be used exclusively in-store or online. <strong>NO REFUNDS</strong></p><p>Return shipping costs are to be covered by the customer. We reserve the right to reject a return if the item, its box, or packaging is marked, damaged, or not in a saleable condition.</p><p>Please be aware that final sale items are not eligible for return, unless deemed faulty by our team.</p><p>Return shipping costs are to be covered by the customer unless the item is faulty or incorrectly supplied.</p><p>SALE ITEMS: Please be aware that final sale items are not eligible for return, unless deemed faulty by our team.</p><p></p><p>For more information <a href=\"/pages/return-policy\" title=\"RETURN & REFUND POLICY\">CLICK HERE</a><br/></p>",
+            "liquid": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "separator",
+        "variant_picker",
+        "quantity_selector",
+        "payment_terms",
+        "buy_buttons",
+        "complementary_products",
+        "description",
+        "accordion_tmd8bm",
+        "accordion_4Qb6eT"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "allow_transparent_header": false,
+        "transparent_header_use_primary_colors": false,
+        "container_size": "lg",
+        "product_info_size": 35,
+        "show_sticky_add_to_cart": true,
+        "center_basic_info": false,
+        "desktop_media_layout": "grid",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "thumbnails",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "heading_style": "h2",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products"
+  ]
+}

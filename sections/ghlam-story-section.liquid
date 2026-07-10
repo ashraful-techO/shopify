@@ -1,0 +1,154 @@
+{{ 'ghlam-story-section.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="ghlam-story-section"
+  style="
+    --ghlam-story-bg: {{ section.settings.background_color }};
+    --ghlam-story-text: {{ section.settings.text_color }};
+    --ghlam-story-muted: {{ section.settings.muted_text_color }};
+    --ghlam-story-accent: {{ section.settings.accent_color }};
+  "
+>
+  <div class="ghlam-story-section__container">
+    <div class="ghlam-story-section__grid">
+      <div class="ghlam-story-section__media">
+        {% if section.settings.image != blank %}
+          {% liquid
+            assign story_alt = section.settings.image.alt
+
+            if story_alt == blank
+              assign story_alt = section.settings.heading
+            endif
+          %}
+
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'ghlam-story-section__image',
+              loading: 'lazy',
+              widths: '480, 720, 960, 1200, 1600',
+              sizes: '(max-width: 749px) 42vw, 50vw',
+              alt: story_alt
+          }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'ghlam-story-section__placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="ghlam-story-section__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="ghlam-story-section__eyebrow">
+            {{ section.settings.eyebrow }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="ghlam-story-section__heading">
+            {{ section.settings.heading | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="ghlam-story-section__text">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          {% liquid
+            assign button_link = section.settings.button_link
+
+            if button_link == blank
+              assign button_link = routes.root_url
+            endif
+          %}
+
+          <a
+            class="ghlam-story-section__button"
+            href="{{ button_link }}"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "GHLAM story section",
+  "tag": "section",
+  "class": "shopify-section--ghlam-story",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small heading",
+      "default": "THE GHLAM STORY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MORE THAN CLOTHING,\nIT’S A STATEMENT."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Ghlam is where elegance meets intention. Every piece is thoughtfully designed to celebrate modesty and timeless beauty.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "OUR JOURNEY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F8F3EE"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#2B241F"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text",
+      "default": "#6F655D"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#B89A5A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "GHLAM story section"
+    }
+  ]
+}
+{% endschema %}

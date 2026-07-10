@@ -1,0 +1,244 @@
+/* ========================================
+   GHLAM FEATURED COLLECTION
+======================================== */
+
+.ghlam-featured {
+    padding: 32px 0 38px;
+    background: var(--ghlam-featured-bg);
+    color: var(--ghlam-featured-text);
+}
+
+.ghlam-featured__container {
+    width: min(calc(100% - 80px), 1400px);
+    margin-inline: auto;
+}
+
+.ghlam-featured__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.ghlam-featured__heading {
+    margin: 0;
+    color: var(--ghlam-featured-text);
+    font-family: var(--heading-font-family, serif);
+    font-size: clamp(24px, 2vw, 32px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.ghlam-featured__button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 10px 16px;
+    border: 1px solid var(--ghlam-featured-border);
+    color: var(--ghlam-featured-text);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.ghlam-featured__button:hover {
+    border-color: var(--ghlam-featured-text);
+    background: var(--ghlam-featured-text);
+    color: #fff;
+}
+
+.ghlam-featured__viewport {
+    overflow: hidden;
+}
+
+.ghlam-featured__track {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.ghlam-featured-card {
+    min-width: 0;
+    text-align: center;
+}
+
+.ghlam-featured-card__media {
+    display: block;
+    overflow: hidden;
+    background: #ece4da;
+    text-decoration: none;
+}
+
+.ghlam-featured-card__image,
+.ghlam-featured-card__placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.ghlam-featured-card:hover .ghlam-featured-card__image {
+    transform: scale(1.025);
+}
+
+.ghlam-featured-card__content {
+    padding-top: 9px;
+}
+
+.ghlam-featured-card__title {
+    display: block;
+    color: var(--ghlam-featured-text);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.ghlam-featured-card__price {
+    margin-top: 3px;
+    color: var(--ghlam-featured-text);
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.ghlam-featured-card__compare {
+    margin-left: 5px;
+    color: var(--ghlam-featured-muted);
+}
+
+.ghlam-featured__dots {
+    display: none;
+}
+
+.ghlam-featured__empty {
+    padding: 50px 20px;
+    border: 1px dashed var(--ghlam-featured-border);
+    color: var(--ghlam-featured-muted);
+    text-align: center;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media screen and (max-width: 999px) {
+    .ghlam-featured__container {
+        width: min(calc(100% - 48px), 1400px);
+    }
+
+    .ghlam-featured__track {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media screen and (max-width: 749px) {
+    .ghlam-featured {
+        padding: 34px 0 38px;
+    }
+
+    .ghlam-featured__container {
+        width: 100%;
+    }
+
+    .ghlam-featured__header {
+        justify-content: space-between;
+        padding-inline: 20px;
+        margin-bottom: 18px;
+    }
+
+    .ghlam-featured__heading {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .ghlam-featured__button {
+        position: static;
+        transform: none;
+        padding: 0 0 3px;
+        border: 0;
+        border-bottom: 1px solid currentColor;
+        background: transparent;
+        font-size: 10px;
+    }
+
+    .ghlam-featured__button:hover {
+        background: transparent;
+        color: var(--ghlam-featured-text);
+    }
+
+    .ghlam-featured__viewport {
+        overflow: visible;
+    }
+
+    .ghlam-featured__track {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-inline: 20px;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .ghlam-featured__track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ghlam-featured-card {
+        flex: 0 0 calc((100% - 50px) / 2);
+        scroll-snap-align: start;
+    }
+
+    .ghlam-featured-card__image,
+    .ghlam-featured-card__placeholder {
+        aspect-ratio: 3 / 4;
+    }
+
+    .ghlam-featured-card__title {
+        font-size: 11px;
+    }
+
+    .ghlam-featured-card__price {
+        font-size: 11px;
+    }
+
+    .ghlam-featured__dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .ghlam-featured__dot {
+        width: 7px;
+        height: 7px;
+        padding: 0;
+        border: 1px solid var(--ghlam-featured-border);
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .ghlam-featured__dot.is-active {
+        border-color: var(--ghlam-featured-text);
+        background: var(--ghlam-featured-text);
+    }
+}

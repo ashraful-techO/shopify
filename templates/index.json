@@ -1,0 +1,757 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ghlam_hero_slider_n6jgtt": {
+      "type": "ghlam-hero-slider",
+      "blocks": {
+        "image_slide_pqMEJr": {
+          "type": "image_slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Enhance_Image.png",
+            "mobile_image": "shopify://shop_images/162B7258-EB4C-48FB-83AA-6EABD6408563.jpg",
+            "desktop_position_x": 55,
+            "desktop_position_y": 30,
+            "mobile_position_x": 80,
+            "mobile_position_y": 50,
+            "overlay_opacity": 10,
+            "eyebrow": "",
+            "heading": "WRAPPED IN GLAMOUR\nROOTED IN MODESTY",
+            "script_text": "Elegantly Yours",
+            "text": "",
+            "button_label": "SHOP THE COLLECTION",
+            "button_link": "",
+            "desktop_alignment": "left",
+            "mobile_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_pqMEJr"
+      ],
+      "name": "GHLAM hero slider",
+      "settings": {
+        "desktop_height": 760,
+        "mobile_height": 720,
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "show_arrows": false,
+        "show_dots": true,
+        "text_color": "#2B241F",
+        "button_background": "#B89A5A",
+        "button_text_color": "#FFFFFF"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "video_LkRAUV": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/IMG_9328.mov",
+            "allow_sound": true,
+            "subheading": "Tell your story",
+            "title": "Video slide",
+            "heading_style": "h1",
+            "mobile_text_position": "place-self-center-start text-start",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        },
+        "video_CHHx7H": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/IMG_1901.mov",
+            "allow_sound": false,
+            "subheading": "Tell your story",
+            "title": "Video slide",
+            "heading_style": "h1",
+            "mobile_text_position": "place-self-center-start text-start",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        },
+        "video_ejEE3t": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/90381e3ca8d3427cbb596abecfea80a8.mp4",
+            "allow_sound": true,
+            "subheading": "Tell your story",
+            "title": "Video slide",
+            "heading_style": "h1",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 400,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        },
+        "image_zXWeCY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0336.jpg",
+            "mobile_image": "shopify://shop_images/D7758BDA-879D-40FD-9F7E-AE34D70EFE54.jpg",
+            "split_image": "shopify://shop_images/92A7BCEE-3726-49D6-8553-6C0DB23E7F4B.jpg",
+            "subheading": "Tell your story",
+            "title": "Image slide",
+            "heading_style": "h2",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 620,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "video_LkRAUV",
+        "video_CHHx7H",
+        "video_ejEE3t",
+        "image_zXWeCY"
+      ],
+      "disabled": true,
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": true,
+        "media_size": "fill",
+        "show_initial_transition": true,
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 4,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "ghlam_new_arrivals_wNFxde": {
+      "type": "ghlam-new-arrivals",
+      "name": "GHLAM new arrivals",
+      "settings": {
+        "heading": "NEW ARRIVALS",
+        "collection": "new-in",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "view_all_label": "VIEW ALL",
+        "show_mobile_dots": true,
+        "background_color": "#f8f3ee",
+        "text_color": "#2b241f",
+        "muted_text_color": "#6f655d",
+        "border_color": "#e4d9cd",
+        "view_all_url": "shopify://collections/new-in"
+      }
+    },
+    "ghlam_category_grid_rqjHbU": {
+      "type": "ghlam-category-grid",
+      "blocks": {
+        "category_n8GQaH": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/92A7BCEE-3726-49D6-8553-6C0DB23E7F4B.jpg",
+            "title": "DRESSES",
+            "show_subtitle": false,
+            "subtitle": "SHOP NOW",
+            "collection": "",
+            "link": ""
+          }
+        },
+        "category_V6fXzX": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/FC584968-9E33-4181-84C5-9FC756ACE267.jpg",
+            "title": "ABAYAS",
+            "show_subtitle": false,
+            "subtitle": "SHOP NOW",
+            "collection": "",
+            "link": ""
+          }
+        },
+        "category_qANf9g": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/0AD07203-1C99-4AF6-9984-D3504035E852.jpg",
+            "title": "HIJABS",
+            "show_subtitle": false,
+            "subtitle": "SHOP NOW",
+            "collection": "",
+            "link": ""
+          }
+        },
+        "category_U96FUV": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/11274A0C-A773-4457-8089-85E99B127CD7.jpg",
+            "title": "SETS",
+            "show_subtitle": false,
+            "subtitle": "SHOP NOW",
+            "collection": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_n8GQaH",
+        "category_V6fXzX",
+        "category_qANf9g",
+        "category_U96FUV"
+      ],
+      "name": "GHLAM category grid",
+      "settings": {
+        "heading": "SHOP BY CATEGORY",
+        "card_gap": 8,
+        "background_color": "#F8F3EE",
+        "text_color": "#FFFFFF",
+        "overlay_color": "#2B241F",
+        "overlay_opacity": 20
+      }
+    },
+    "ghlam_story_section_QnDeVg": {
+      "type": "ghlam-story-section",
+      "name": "GHLAM story section",
+      "settings": {
+        "image": "shopify://shop_images/D7758BDA-879D-40FD-9F7E-AE34D70EFE54.jpg",
+        "eyebrow": "THE GHLAM STORY",
+        "heading": "MORE THAN CLOTHING,\nIT’S A STATEMENT.",
+        "text": "<p>Ghlam is where elegance meets intention. Every piece is thoughtfully designed to celebrate modesty and timeless beauty.</p>",
+        "button_label": "OUR JOURNEY",
+        "button_link": "shopify://pages/about-us",
+        "background_color": "#f8f3ee",
+        "text_color": "#2b241f",
+        "muted_text_color": "#6f655d",
+        "accent_color": "#b89a5a"
+      }
+    },
+    "ghlam_featured_collection_bwqDW7": {
+      "type": "ghlam-featured-collection",
+      "name": "GHLAM featured collection",
+      "settings": {
+        "heading": "FEATURED COLLECTION",
+        "collection": "lace-modal",
+        "products_to_show": 6,
+        "show_button": true,
+        "button_label": "SHOP BESTSELLERS",
+        "button_link": "shopify://collections/tops",
+        "show_mobile_dots": true,
+        "background_color": "#f8f3ee",
+        "text_color": "#2b241f",
+        "muted_text_color": "#6f655d",
+        "border_color": "#e4d9cd"
+      }
+    },
+    "ss_feature_1_G9Vh3N": {
+      "type": "ss-feature-1",
+      "blocks": {
+        "image_RtbEDy": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Worldwide Shipping",
+            "feature_text": "",
+            "icon_type": "custom",
+            "icon": "rocket",
+            "feature_image": "shopify://shop_images/air-mail.png",
+            "feature_url": ""
+          }
+        },
+        "image_fLx77r": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Premium Quality",
+            "feature_text": "",
+            "icon_type": "default",
+            "icon": "gem_sparkle",
+            "feature_url": ""
+          }
+        },
+        "image_9eiwCt": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Easy Returns",
+            "feature_text": "",
+            "icon_type": "default",
+            "icon": "arrow_dotted_rotate_anticlockwise",
+            "feature_url": ""
+          }
+        },
+        "image_yQL9AQ": {
+          "type": "image",
+          "settings": {
+            "feature_title": "Secure Checkout",
+            "feature_text": "",
+            "icon_type": "default",
+            "icon": "lock",
+            "feature_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_RtbEDy",
+        "image_fLx77r",
+        "image_9eiwCt",
+        "image_yQL9AQ"
+      ],
+      "name": "SS - Feature #1",
+      "settings": {
+        "feature_title_custom": true,
+        "feature_title_font": "josefin_sans_n4",
+        "feature_title_size": 14,
+        "feature_title_size_mobile": 9,
+        "feature_title_advanced": false,
+        "feature_title_height": 130,
+        "feature_title_mt": 8,
+        "feature_title_mt_mobile": 8,
+        "feature_text_custom": true,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 12,
+        "feature_text_size_mobile": 9,
+        "feature_text_advanced": false,
+        "feature_text_height": 150,
+        "feature_text_mt": 4,
+        "feature_text_mt_mobile": 4,
+        "feature_icon_size": 42,
+        "feature_icon_size_mobile": 30,
+        "feature_row": 4,
+        "feature_row_mobile": 4,
+        "feature_gap": 0,
+        "feature_gap_mobile": 0,
+        "feature_background": false,
+        "feature_bg": "#f5f5f5",
+        "feature_padding_horizontal": 24,
+        "feature_padding_horizontal_mobile": 16,
+        "feature_padding_vertical": 32,
+        "feature_padding_vertical_mobile": 24,
+        "feature_radius": 16,
+        "feature_border_thickness": 0,
+        "feature_border_color": "#dfdfdf",
+        "feature_shadow": false,
+        "feature_shadow_color": "#000000",
+        "feature_title_color": "#121212",
+        "feature_text_color": "#121212",
+        "feature_icon_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#ffffff",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#dfdfdf",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_horizontal": 8.5,
+        "padding_horizontal_mobile": 0,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 3,
+        "section_radius": 0
+      }
+    },
+    "ss_testimonials_48_ULfkyq": {
+      "type": "ss-testimonials-48",
+      "blocks": {
+        "sub_heading_azrLQp": {
+          "type": "sub_heading",
+          "settings": {
+            "sub_heading": "<p>HALF OF THE STOCK IS ALREADY SOLD!</p>",
+            "sub_heading_custom": false,
+            "sub_heading_font": "josefin_sans_n4",
+            "sub_heading_size": 12,
+            "sub_heading_size_mobile": 12,
+            "sub_heading_advanced": false,
+            "sub_heading_height": 130,
+            "sub_heading_mt": 0,
+            "sub_heading_mt_mobile": 0,
+            "background": true,
+            "sub_heading_radius": 100,
+            "sub_heading_border_thickness": 0,
+            "sub_heading_padding_horizontal": 16,
+            "sub_heading_padding_horizontal_mobile": 12,
+            "sub_heading_padding_vertical": 8,
+            "sub_heading_padding_vertical_mobile": 6,
+            "sub_heading_color": "#121212",
+            "sub_heading_bg_color": "#f7f7f7",
+            "sub_heading_border_color": "#121212"
+          }
+        },
+        "heading_nLChMc": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>Ghlam</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_font": "playfair_n4",
+            "heading_size": 56,
+            "heading_size_mobile": 40,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 16,
+            "heading_mt_mobile": 16,
+            "heading_color": "#121212",
+            "heading_accent_color": "#afafaf"
+          }
+        },
+        "text_cCJ6Gd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tell your story</p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 24,
+            "text_size_mobile": 18,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_max_width": 100,
+            "text_max_width_mobile": 100,
+            "text_mt": 16,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "testimonial_jEHRH7": {
+          "type": "testimonial",
+          "settings": {
+            "stars_count": 5,
+            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
+            "author": "Author's name",
+            "subcopy_author": "Subcoppy"
+          }
+        },
+        "testimonial_cNGWiF": {
+          "type": "testimonial",
+          "settings": {
+            "stars_count": 5,
+            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
+            "author": "Author's name",
+            "subcopy_author": "Subcoppy"
+          }
+        },
+        "testimonial_JcAy7e": {
+          "type": "testimonial",
+          "settings": {
+            "stars_count": 5,
+            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
+            "author": "Author's name",
+            "subcopy_author": "Subcoppy"
+          }
+        },
+        "testimonial_TR3qcr": {
+          "type": "testimonial",
+          "settings": {
+            "stars_count": 5,
+            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
+            "author": "Author's name",
+            "subcopy_author": "Subcoppy"
+          }
+        }
+      },
+      "block_order": [
+        "sub_heading_azrLQp",
+        "heading_nLChMc",
+        "text_cCJ6Gd",
+        "testimonial_jEHRH7",
+        "testimonial_cNGWiF",
+        "testimonial_JcAy7e",
+        "testimonial_TR3qcr"
+      ],
+      "name": "SS - Testimonials #48",
+      "settings": {
+        "content_align": "center",
+        "content_align_mobile": "center",
+        "scrolling_velocity": 150,
+        "scrolling_velocity_mobile": 146,
+        "reverse_direction": false,
+        "pause_hover": true,
+        "slider_advanced": false,
+        "scrolling_gap": 16,
+        "scrolling_gap_mobile": 16,
+        "cards_mt": 32,
+        "cards_mt_mobile": 16,
+        "card_padding_advanced": true,
+        "card_width": 290,
+        "card_width_mobile": 320,
+        "card_padding_horizontal": 16,
+        "card_padding_horizontal_mobile": 16,
+        "card_padding_vertical": 16,
+        "card_padding_vertical_mobile": 16,
+        "card_radius": 16,
+        "card_border_thickness": 0,
+        "card_shadow": true,
+        "card_shadow_color": "#959da5",
+        "card_content_align": "center",
+        "card_content_align_mobile": "center",
+        "author_image_size": 42,
+        "author_image_size_mobile": 42,
+        "author_image_radius": 40,
+        "author_image_border_thickness": 0,
+        "author_custom": false,
+        "author_font": "josefin_sans_n4",
+        "author_size": 14,
+        "author_size_mobile": 14,
+        "author_height": 130,
+        "subcopy_author_custom": false,
+        "subcopy_author_font": "josefin_sans_n4",
+        "subcopy_author_size": 12,
+        "subcopy_author_size_mobile": 12,
+        "subcopy_advanced": false,
+        "subcopy_author_height": 130,
+        "subcopy_author_mt": 4,
+        "subcopy_author_mt_mobile": 4,
+        "subcopy_text_length": 24,
+        "slide_stars_size": 16,
+        "slide_stars_size_mobile": 9,
+        "slide_stars_advanced": false,
+        "slide_stars_gap": 2,
+        "slide_stars_mt": 10,
+        "slide_stars_mt_mobile": 10,
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 14,
+        "text_size_mobile": 14,
+        "text_advanced": false,
+        "text_height": 150,
+        "text_mt": 12,
+        "text_mt_mobile": 12,
+        "text_color": "#121212",
+        "text_bg_color": "#121212",
+        "author_color": "#121212",
+        "subcopy_author_color": "#afafaf",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#121212",
+        "slide_stars_color": "#ffffff",
+        "slide_stars_bg_color": "#00b67a",
+        "slide_stars_bg_half_color": "#dddddd",
+        "author_image_color": "#ffffff",
+        "author_image_bg_color": "#121212",
+        "author_image_border_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#ffffff",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "1783664406d525d157": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_mqdWUG": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "Lets Connect",
+            "title_color": "#f8f3ee",
+            "title_size_v2": 15,
+            "alignment": "center",
+            "instafeed_margin_top": 15,
+            "instafeed_margin_bottom": 26,
+            "instafeed_margin_sides": 30,
+            "show_instagram_link": true,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "#f8f3ee",
+            "feed_id": "",
+            "html_area": "<h1>Connect with Insta</h1>"
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_mqdWUG"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false
+      }
+    },
+    "ss_instafeed_2_9w6EJk": {
+      "type": "ss-instafeed-2",
+      "blocks": {
+        "slide_YGrt7n": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/92A7BCEE-3726-49D6-8553-6C0DB23E7F4B.jpg",
+            "url": ""
+          }
+        },
+        "slide_LwpcQw": {
+          "type": "slide",
+          "settings": {
+            "url": ""
+          }
+        },
+        "slide_TLWKdG": {
+          "type": "slide",
+          "settings": {
+            "url": ""
+          }
+        },
+        "slide_DgyBkp": {
+          "type": "slide",
+          "settings": {
+            "url": ""
+          }
+        },
+        "slide_VnBBGL": {
+          "type": "slide",
+          "settings": {
+            "url": ""
+          }
+        },
+        "slide_Ab3Dyt": {
+          "type": "slide",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_YGrt7n",
+        "slide_LwpcQw",
+        "slide_TLWKdG",
+        "slide_DgyBkp",
+        "slide_VnBBGL",
+        "slide_Ab3Dyt"
+      ],
+      "name": "SS - Instafeed #2",
+      "settings": {
+        "top": "Social (custom insta with link)",
+        "top_custom": false,
+        "top_font": "josefin_sans_n4",
+        "top_size": 13,
+        "top_height": 130,
+        "top_align": "center",
+        "heading": "Let’s be friends.",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_height": 130,
+        "heading_align": "center",
+        "heading_mt": 12,
+        "subheading": "<h3>Join the convo with #AwesomeBrandTag</h3>",
+        "subheading_custom": false,
+        "subheading_font": "josefin_sans_n4",
+        "subheading_size": 16,
+        "subheading_height": 130,
+        "subheading_align": "center",
+        "subheading_mt": 12,
+        "slider_mt": 60,
+        "slider_row": "6",
+        "slider_row_mobile": "1",
+        "slider_gap": 20,
+        "slider_gap_mobile": 32,
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "nav_size": 40,
+        "nav_size_mobile": 30,
+        "hide_nav": true,
+        "hide_nav_mobile": false,
+        "image_radius": 0,
+        "top_color": "#e69e6c",
+        "heading_color": "#746661",
+        "subheading_color": "#aba49d",
+        "nav_btn_bg": "#ffffff",
+        "nav_btn_hover_bg": "#e69e6c",
+        "nav_border": "#e69e6c",
+        "nav_border_hover": "#e69e6c",
+        "nav_icon": "#e69e6c",
+        "nav_hover_icon": "#ffffff",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    }
+  },
+  "order": [
+    "ghlam_hero_slider_n6jgtt",
+    "slideshow",
+    "ghlam_new_arrivals_wNFxde",
+    "ghlam_category_grid_rqjHbU",
+    "ghlam_story_section_QnDeVg",
+    "ghlam_featured_collection_bwqDW7",
+    "ss_feature_1_G9Vh3N",
+    "ss_testimonials_48_ULfkyq",
+    "1783664406d525d157",
+    "ss_instafeed_2_9w6EJk"
+  ]
+}

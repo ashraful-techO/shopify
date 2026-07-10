@@ -1,0 +1,293 @@
+.ghlam-hero-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #e9dfd4;
+    color: var(--ghlam-hero-text);
+}
+
+.ghlam-hero-slider__viewport {
+    position: relative;
+    width: 100%;
+    height: var(--ghlam-hero-desktop-height);
+    overflow: hidden;
+}
+
+.ghlam-hero-slider__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ghlam-hero-slide {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.65s ease,
+        visibility 0.65s ease;
+}
+
+.ghlam-hero-slide.is-active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ghlam-hero-slide__media {
+    position: absolute;
+    inset: 0;
+}
+
+.ghlam-hero-slide__image,
+.ghlam-hero-slide__video,
+.ghlam-hero-slide__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ghlam-hero-slide__image--desktop,
+.ghlam-hero-slide__video--desktop {
+    object-position:
+        var(--desktop-position-x) var(--desktop-position-y);
+}
+
+.ghlam-hero-slide__image--mobile,
+.ghlam-hero-slide__video--mobile {
+    display: none;
+}
+
+.ghlam-hero-slide__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: #1e1814;
+    opacity: var(--overlay-opacity);
+    pointer-events: none;
+}
+
+.ghlam-hero-slide__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    width: min(calc(100% - 100px), 1440px);
+    height: 100%;
+    margin-inline: auto;
+}
+
+.ghlam-hero-slide__content--desktop-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.ghlam-hero-slide__content--desktop-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.ghlam-hero-slide__content--desktop-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.ghlam-hero-slide__content-inner {
+    width: min(100%, 560px);
+}
+
+.ghlam-hero-slide__eyebrow {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.ghlam-hero-slide__heading {
+    margin: 0;
+    color: inherit;
+    font-family: var(--heading-font-family, serif);
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1.03;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.ghlam-hero-slide__script {
+    margin: 16px 0 0;
+    font-family: cursive;
+    font-size: clamp(25px, 2.4vw, 38px);
+    line-height: 1.2;
+}
+
+.ghlam-hero-slide__text {
+    max-width: 480px;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.ghlam-hero-slide__text p {
+    margin: 0;
+}
+
+.ghlam-hero-slide__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    margin-top: 28px;
+    padding: 0 34px;
+    border: 1px solid var(--ghlam-hero-button-bg);
+    background: var(--ghlam-hero-button-bg);
+    color: var(--ghlam-hero-button-text);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.ghlam-hero-slide__button:hover {
+    border-color: #2b241f;
+    background: #2b241f;
+    color: #fff;
+}
+
+.ghlam-hero-slider__dots {
+    position: absolute;
+    z-index: 4;
+    bottom: 28px;
+    left: 50%;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+}
+
+.ghlam-hero-slider__dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ghlam-hero-slider__dot.is-active {
+    background: currentColor;
+}
+
+.ghlam-hero-slider__arrow {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background: rgba(25, 20, 16, 0.18);
+    color: #fff;
+    cursor: pointer;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+
+.ghlam-hero-slider__arrow--previous {
+    left: 24px;
+}
+
+.ghlam-hero-slider__arrow--next {
+    right: 24px;
+}
+
+@media screen and (max-width: 749px) {
+    .ghlam-hero-slider__viewport {
+        height: var(--ghlam-hero-mobile-height);
+    }
+
+    .ghlam-hero-slide__image--desktop,
+    .ghlam-hero-slide__video--desktop {
+        display: none;
+    }
+
+    .ghlam-hero-slide__image--mobile,
+    .ghlam-hero-slide__video--mobile {
+        display: block;
+        object-position:
+            var(--mobile-position-x) var(--mobile-position-y);
+    }
+
+    .ghlam-hero-slide__image--desktop:last-child,
+    .ghlam-hero-slide__video--desktop:last-child {
+        display: block;
+        object-position:
+            var(--mobile-position-x) var(--mobile-position-y);
+    }
+
+    .ghlam-hero-slide__content {
+        width: calc(100% - 40px);
+        padding-top: 30px;
+        padding-bottom: 90px;
+    }
+
+    .ghlam-hero-slide__content--mobile-left {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .ghlam-hero-slide__content--mobile-center {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .ghlam-hero-slide__content--mobile-right {
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .ghlam-hero-slide__content-inner {
+        width: min(62%, 330px);
+    }
+
+    .ghlam-hero-slide__heading {
+        font-size: clamp(31px, 9vw, 46px);
+        line-height: 1.05;
+    }
+
+    .ghlam-hero-slide__script {
+        margin-top: 12px;
+        font-size: 25px;
+    }
+
+    .ghlam-hero-slide__text {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .ghlam-hero-slide__button {
+        min-height: 48px;
+        margin-top: 22px;
+        padding: 0 20px;
+        font-size: 10px;
+    }
+
+    .ghlam-hero-slider__dots {
+        bottom: 24px;
+    }
+
+    .ghlam-hero-slider__arrow {
+        display: none;
+    }
+}

@@ -1,0 +1,399 @@
+{{ 'custom-footer.css' | asset_url | stylesheet_tag }}
+
+<footer
+  class="ghlam-footer"
+  style="
+    --ghlam-footer-bg: {{ section.settings.background_color }};
+    --ghlam-footer-text: {{ section.settings.text_color }};
+    --ghlam-footer-muted: {{ section.settings.muted_text_color }};
+    --ghlam-footer-accent: {{ section.settings.accent_color }};
+    --ghlam-footer-border: {{ section.settings.border_color }};
+  "
+>
+  <div class="ghlam-footer__container">
+    {% if section.settings.show_newsletter %}
+      <div class="ghlam-footer__newsletter">
+        <div class="ghlam-footer__newsletter-copy">
+          {% if section.settings.newsletter_heading != blank %}
+            <h2 class="ghlam-footer__newsletter-heading">
+              {{ section.settings.newsletter_heading }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.newsletter_text != blank %}
+            <div class="ghlam-footer__newsletter-text">
+              {{ section.settings.newsletter_text }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% form 'customer', class: 'ghlam-footer__newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+
+          <div class="ghlam-footer__newsletter-row">
+            <label
+              class="visually-hidden"
+              for="GhlamFooterEmail-{{ section.id }}"
+            >
+              Email address
+            </label>
+
+            <input
+              id="GhlamFooterEmail-{{ section.id }}"
+              class="ghlam-footer__email"
+              type="email"
+              name="contact[email]"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{{ section.settings.email_placeholder }}"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+
+            <button
+              class="ghlam-footer__subscribe"
+              type="submit"
+              name="commit"
+            >
+              {{ section.settings.button_label }}
+            </button>
+          </div>
+
+          {% if form.posted_successfully? %}
+            <p class="ghlam-footer__form-message ghlam-footer__form-message--success">
+              {{ section.settings.success_message }}
+            </p>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="ghlam-footer__form-message ghlam-footer__form-message--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+    {% endif %}
+
+    <div class="ghlam-footer__main">
+      <div class="ghlam-footer__brand">
+        <a
+          href="{{ routes.root_url }}"
+          class="ghlam-footer__brand-link"
+          aria-label="{{ shop.name | escape }}"
+        >
+          {% if section.settings.logo != blank %}
+            {{
+              section.settings.logo
+              | image_url: width: 400
+              | image_tag:
+                class: 'ghlam-footer__logo-image',
+                loading: 'lazy',
+                widths: '160, 220, 300, 400',
+                sizes: '(max-width: 749px) 160px, 220px',
+                alt: shop.name
+            }}
+          {% else %}
+            <span class="ghlam-footer__logo-text">
+              {{ section.settings.logo_text | default: shop.name }}
+            </span>
+          {% endif %}
+        </a>
+
+        {% if section.settings.show_mobile_socials %}
+          <div class="ghlam-footer__mobile-socials">
+            <p class="ghlam-footer__social-heading">
+              {{ section.settings.social_heading }}
+            </p>
+
+            {% render 'social-media' %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ghlam-footer__menus">
+        {% for block in section.blocks %}
+          {% if block.type == 'menu' %}
+            <div
+              class="ghlam-footer__menu"
+              {{ block.shopify_attributes }}
+            >
+              <div class="ghlam-footer__menu-desktop">
+                {% if block.settings.heading != blank %}
+                  <h3 class="ghlam-footer__menu-heading">
+                    {{ block.settings.heading }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.menu != blank %}
+                  <ul class="ghlam-footer__menu-list" role="list">
+                    {% for link in block.settings.menu.links %}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          {% if link.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+
+              <details class="ghlam-footer__menu-mobile">
+                <summary>
+                  <span>{{ block.settings.heading }}</span>
+
+                  <span class="ghlam-footer__accordion-icon" aria-hidden="true"> ⌄ </span>
+                </summary>
+
+                {% if block.settings.menu != blank %}
+                  <ul class="ghlam-footer__menu-list" role="list">
+                    {% for link in block.settings.menu.links %}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          {% if link.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </details>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if section.settings.show_desktop_socials %}
+          <div class="ghlam-footer__social-column">
+            <h3 class="ghlam-footer__menu-heading">
+              {{ section.settings.social_heading }}
+            </h3>
+
+            {% render 'social-media' %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ghlam-footer__bottom">
+      <p class="ghlam-footer__copyright">
+        © {{ 'now' | date: '%Y' }}
+        {{ section.settings.copyright_name | default: shop.name }}.
+        {{ section.settings.copyright_text }}
+      </p>
+
+      {% if section.settings.show_payment_icons %}
+        <div class="ghlam-footer__payments" aria-label="Payment methods">
+          {% for type in shop.enabled_payment_types %}
+            {{ type | payment_type_svg_tag: class: 'ghlam-footer__payment-icon' }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "GHLAM custom footer",
+  "tag": "section",
+  "class": "shopify-section--ghlam-footer",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "JOIN THE GHLAM COMMUNITY"
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_text",
+      "label": "Text",
+      "default": "<p>Receive exclusive launches, styling inspiration, and special offers.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SUBSCRIBE"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for joining the GHLAM community."
+    },
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "GHLAM"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "text",
+      "id": "social_heading",
+      "label": "Social heading",
+      "default": "FOLLOW US"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desktop_socials",
+      "label": "Show social icons on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_socials",
+      "label": "Show social icons on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Bottom footer"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Copyright name",
+      "default": "GHLAM"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F8F3EE"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#2B241F"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text",
+      "default": "#6F655D"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#B89A5A"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#E4D9CD"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "GHLAM custom footer",
+      "blocks": [
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "Shop"
+          }
+        },
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "About Us"
+          }
+        },
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "Customer Care"
+          }
+        },
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "Legal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

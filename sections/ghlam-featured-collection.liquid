@@ -1,0 +1,269 @@
+{{ 'ghlam-featured-collection.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="ghlam-featured"
+  data-section-id="{{ section.id }}"
+  style="
+    --ghlam-featured-bg: {{ section.settings.background_color }};
+    --ghlam-featured-text: {{ section.settings.text_color }};
+    --ghlam-featured-muted: {{ section.settings.muted_text_color }};
+    --ghlam-featured-border: {{ section.settings.border_color }};
+  "
+>
+  <div class="ghlam-featured__container">
+    <div class="ghlam-featured__header">
+      <h2 class="ghlam-featured__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+      {% liquid
+        assign button_link = section.settings.button_link
+
+        if button_link == blank and section.settings.collection != blank
+          assign button_link = section.settings.collection.url
+        endif
+      %}
+
+      {% if section.settings.show_button and button_link != blank %}
+        <a
+          class="ghlam-featured__button"
+          href="{{ button_link }}"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% assign selected_collection = section.settings.collection %}
+
+    {% if selected_collection != blank and selected_collection.products_count > 0 %}
+      <div class="ghlam-featured__viewport">
+        <div
+          class="ghlam-featured__track"
+          id="GhlamFeaturedTrack-{{ section.id }}"
+        >
+          {% for product in selected_collection.products limit: section.settings.products_to_show %}
+            {% liquid
+              assign product_image_alt = product.featured_image.alt
+
+              if product_image_alt == blank
+                assign product_image_alt = product.title
+              endif
+            %}
+
+            <article class="ghlam-featured-card">
+              <a
+                class="ghlam-featured-card__media"
+                href="{{ product.url }}"
+                aria-label="{{ product.title | escape }}"
+              >
+                {% if product.featured_image != blank %}
+                  {{
+                    product.featured_image
+                    | image_url: width: 900
+                    | image_tag:
+                      class: 'ghlam-featured-card__image',
+                      loading: 'lazy',
+                      widths: '240, 360, 480, 640, 900',
+                      sizes: '(max-width: 749px) 50vw, 16.67vw',
+                      alt: product_image_alt
+                  }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'ghlam-featured-card__placeholder' }}
+                {% endif %}
+              </a>
+
+              <div class="ghlam-featured-card__content">
+                <a
+                  class="ghlam-featured-card__title"
+                  href="{{ product.url }}"
+                >
+                  {{ product.title }}
+                </a>
+
+                <div class="ghlam-featured-card__price">
+                  {% if product.compare_at_price > product.price %}
+                    <span class="ghlam-featured-card__sale">
+                      {{ product.price | money }}
+                    </span>
+
+                    <s class="ghlam-featured-card__compare">
+                      {{ product.compare_at_price | money }}
+                    </s>
+                  {% else %}
+                    {{ product.price | money }}
+                  {% endif %}
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.settings.show_mobile_dots %}
+        {% liquid
+          assign product_count = selected_collection.products_count
+          assign product_count = product_count | at_most: section.settings.products_to_show
+          assign mobile_pages = product_count | plus: 1 | divided_by: 2
+        %}
+
+        {% if mobile_pages > 1 %}
+          <div class="ghlam-featured__dots">
+            {% for i in (1..mobile_pages) %}
+              <button
+                class="ghlam-featured__dot{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                aria-label="Go to featured products page {{ forloop.index }}"
+                data-page="{{ forloop.index0 }}"
+              ></button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% else %}
+      <div class="ghlam-featured__empty">Select a collection in the Theme Editor.</div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (() => {
+    const currentScript = document.currentScript;
+    const section = currentScript.closest('.shopify-section');
+
+    if (!section) return;
+
+    const track = section.querySelector('.ghlam-featured__track');
+    const dots = section.querySelectorAll('.ghlam-featured__dot');
+
+    if (!track || dots.length === 0) return;
+
+    const getPageWidth = () => {
+      const firstCard = track.querySelector('.ghlam-featured-card');
+
+      if (!firstCard) return track.clientWidth;
+
+      const styles = window.getComputedStyle(track);
+      const gap = parseFloat(styles.columnGap || styles.gap || 0);
+
+      return firstCard.offsetWidth * 2 + gap;
+    };
+
+    const updateDots = () => {
+      const pageWidth = getPageWidth();
+
+      if (!pageWidth) return;
+
+      const currentPage = Math.round(track.scrollLeft / pageWidth);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === currentPage);
+      });
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const page = Number(dot.dataset.page);
+
+        track.scrollTo({
+          left: getPageWidth() * page,
+          behavior: 'smooth',
+        });
+      });
+    });
+
+    track.addEventListener('scroll', updateDots, {
+      passive: true,
+    });
+
+    window.addEventListener('resize', updateDots);
+
+    updateDots();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "GHLAM featured collection",
+  "tag": "section",
+  "class": "shopify-section--ghlam-featured",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FEATURED COLLECTION"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP BESTSELLERS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Custom button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_dots",
+      "label": "Show mobile slider dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F8F3EE"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#2B241F"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text",
+      "default": "#6F655D"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#E4D9CD"
+    }
+  ],
+  "presets": [
+    {
+      "name": "GHLAM featured collection"
+    }
+  ]
+}
+{% endschema %}
