@@ -12,23 +12,7 @@ The project follows a minimal, editorial, and timeless visual direction with war
 
 ### Desktop
 
-![GHLAM Desktop Homepage](views/desktop-homepage.png)
-
 ### Mobile
-
-![GHLAM Mobile Homepage](views/mobile-homepage.png)
-
-### Header
-
-![GHLAM Header](views/header.png)
-
-### Mobile Menu
-
-![GHLAM Mobile Menu](views/mobile-menu.png)
-
-### Footer
-
-![GHLAM Footer](views/footer.png)
 
 ---
 
