@@ -28,6 +28,7 @@
     },
     "newsletter-popup": {
       "type": "newsletter-popup",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-2",
         "apparition_delay": 5,
@@ -47,11 +48,40 @@
         "title": "🍪 Cookie policy",
         "content": "<p>We use cookies and similar technologies to provide the best experience on our website. Refer to our Privacy Policy for more information.</p>"
       }
+    },
+    "ghlam_newsletter_popup_qqaxV7": {
+      "type": "ghlam-newsletter-popup",
+      "name": "GHLAM newsletter popup",
+      "settings": {
+        "eyebrow": "Welcome to GHLAM",
+        "offer_text": "10% OFF",
+        "heading": "Enjoy 10% off your first order",
+        "content": "<p>Join our modest community and receive exclusive access to new arrivals, styling inspiration and special offers.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_text": "Unlock 10% off",
+        "footer_text": "<p>By subscribing, you agree to receive marketing emails. You can unsubscribe at any time.</p>",
+        "success_heading": "Welcome to GHLAM",
+        "success_message": "<p>Thank you for subscribing. Please check your inbox for your exclusive offer.</p>",
+        "apparition_delay": 2,
+        "show_only_on_index": true,
+        "hide_for_account_holders": true,
+        "show_only_once": true,
+        "show_newsletter_form": true,
+        "color_scheme": "",
+        "background_color": "#f5f1e8",
+        "text_color": "#211f1c",
+        "accent_color": "#a58a5e",
+        "button_background": "#211f1c",
+        "button_text_color": "#ffffff",
+        "desktop_width": 520,
+        "border_radius": 0
+      }
     }
   },
   "order": [
     "cart-drawer",
     "newsletter-popup",
-    "privacy-banner"
+    "privacy-banner",
+    "ghlam_newsletter_popup_qqaxV7"
   ]
 }

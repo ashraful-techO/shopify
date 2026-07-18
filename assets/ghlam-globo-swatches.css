@@ -1,0 +1,96 @@
+/* =========================================
+   GHLAM - GLOBO COLLECTION SWATCHES
+========================================= */
+
+.product-card__info.globo-swatch-product-item {
+  width: 100%;
+  min-width: 0;
+}
+
+.product-card .swatches-globo--list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.product-card .swatches-globo {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.product-card .globo-align-content-center {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.product-card .globo-swatch-list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.product-card .swatch--gl {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* The actual Globo swatch row */
+.product-card .ul-swatches-list {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 7px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  margin: 0 !important;
+  padding: 3px 2px 7px !important;
+
+  list-style: none !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-card .ul-swatches-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Prevent each swatch from shrinking or moving to another row */
+.product-card .ul-swatches-list > li {
+  display: block !important;
+  flex: 0 0 auto !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+/* Keep Globo swatch circle stable */
+.product-card .ul-swatches-list .swatch-anchor {
+  display: block !important;
+  flex: 0 0 auto !important;
+}
+
+/* Hide duplicate Globo price under/above swatches */
+.product-card .globo-collection-swatch-price {
+  display: none !important;
+}
+
+/* Mobile */
+@media screen and (max-width: 699px) {
+  .product-card .ul-swatches-list {
+    gap: 5px !important;
+    padding-bottom: 6px !important;
+  }
+}

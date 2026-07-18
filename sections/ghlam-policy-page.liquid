@@ -1,0 +1,186 @@
+{{ 'ghlam-policy-page.css' | asset_url | stylesheet_tag }}
+
+<section class="ghlam-policy">
+
+  <div class="ghlam-policy__hero">
+    <div class="page-width">
+
+      {% if section.settings.eyebrow != blank %}
+        <span class="ghlam-policy__eyebrow">
+          {{ section.settings.eyebrow }}
+        </span>
+      {% endif %}
+
+      <h1 class="ghlam-policy__title">
+        {{ section.settings.heading }}
+      </h1>
+
+      {% if section.settings.description != blank %}
+        <div class="ghlam-policy__description rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.updated != blank %}
+        <p class="ghlam-policy__updated">
+          Last Updated • {{ section.settings.updated }}
+        </p>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="page-width">
+
+    <div class="ghlam-policy__wrapper">
+
+      {% for block in section.blocks %}
+
+        {% case block.type %}
+
+          {% when 'policy' %}
+
+            <div class="ghlam-policy-card" {{ block.shopify_attributes }}>
+
+              <div class="ghlam-policy-card__number">
+                {{ forloop.index | prepend: '0' }}
+              </div>
+
+              <div class="ghlam-policy-card__content">
+
+                <h2>
+                  {{ block.settings.title }}
+                </h2>
+
+                <div class="rte">
+
+                  {{ block.settings.text }}
+
+                </div>
+
+              </div>
+
+            </div>
+
+          {% when 'contact' %}
+
+            <div class="ghlam-contact-card" {{ block.shopify_attributes }}>
+
+              <h2>{{ block.settings.title }}</h2>
+
+              <div class="rte">
+
+                {{ block.settings.text }}
+
+              </div>
+
+              {% if block.settings.button_label != blank %}
+
+                <a
+                  href="{{ block.settings.button_link }}"
+                  class="button"
+                >
+                  {{ block.settings.button_label }}
+                </a>
+
+              {% endif %}
+
+            </div>
+
+        {% endcase %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "GHLAM Policy Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "GHLAM"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Returns, Exchanges & Refund Policy"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We are committed to providing premium-quality products and exceptional customer service. Please review our policy carefully before placing your order.</p>"
+    },
+    {
+      "type": "text",
+      "id": "updated",
+      "label": "Last Updated",
+      "default": "18 July 2026"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy",
+      "name": "Policy Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Returns"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Need Assistance?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Content",
+          "default": "<p>If you have any questions regarding your order, our support team is here to help.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button",
+          "default": "Contact Us"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "GHLAM Policy Page"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+/* =========================================
+   GHLAM PRODUCT CARD SWATCHES
+========================================= */
+
+.product-card__info {
+  width: 100%;
+  min-width: 0;
+}
+
+.ghlam-product-swatches {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0 0 6px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ghlam-product-swatches::-webkit-scrollbar {
+  display: none;
+}
+
+.ghlam-product-swatches > .color-swatch {
+  flex: 0 0 auto;
+}
+
+@media screen and (max-width: 699px) {
+  .ghlam-product-swatches {
+    gap: 5px;
+    padding-bottom: 5px;
+  }
+
+  .product-card__info .ghlam-product-swatches .color-swatch {
+    --swatch-size: 1.25rem;
+  }
+}

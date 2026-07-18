@@ -62,6 +62,7 @@
     {{ content_for_header }}
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+    {{ 'ghlam-globo-swatches.css' | asset_url | stylesheet_tag }}
   </head>
 
   {% liquid
@@ -75,6 +76,8 @@
       assign features_class = features_class | append: 'features--zoom-image '
     endif
   %}
+
+  
 
   <body class="{{ features_class }} color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
     {%- render 'shadow-dom-templates' -%}
@@ -117,5 +120,7 @@
         {%- sections 'footer-group' -%}
       {%- endif -%}
     </main>
+
+    {% comment %} <script src="{{ 'ghlam-chat-trigger.js' | asset_url }}" defer></script> {% endcomment %}
   </body>
 </html>

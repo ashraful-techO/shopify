@@ -1,0 +1,119 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "ghlam-policy-page",
+      "blocks": {
+        "policy_1": {
+          "type": "policy",
+          "settings": {
+            "title": "Returns for Exchange or Store Credit",
+            "text": "<p>If you wish to request an exchange or store credit, you must contact GHLAM within 48 hours of receiving your order.</p><p>Approved returns must be received by GHLAM within 14 days of the delivery date.</p><p>To be eligible for an exchange or store credit, your item must:</p><ul><li>Be unworn, unused, unwashed, and in its original condition.</li><li>Be free from perfume, makeup, stains, odours, or damage.</li><li>Have all original tags attached.</li><li>Be returned in its original packaging.</li><li>Include the original invoice or proof of purchase.</li></ul><p>Items that do not meet these requirements will not be accepted.</p><p><strong>Please choose carefully. We do not offer refunds for change-of-mind purchases.</strong></p>"
+          }
+        },
+        "policy_2": {
+          "type": "policy",
+          "settings": {
+            "title": "Return Shipping",
+            "text": "<p>Customers are responsible for all return shipping costs.</p><p>We recommend using a tracked and insured shipping service, as returned items remain the customer's responsibility until safely received by GHLAM.</p><p>GHLAM is not responsible for items lost or damaged during return transit and does not reimburse return shipping costs.</p><p>If a returned item is damaged due to improper packaging or customer use, it will be returned to the customer at their expense.</p>"
+          }
+        },
+        "policy_3": {
+          "type": "policy",
+          "settings": {
+            "title": "Return Approval",
+            "text": "<p>GHLAM reserves the right to refuse any return that:</p><ul><li>Is received outside the return period.</li><li>Is not in its original condition.</li><li>Is missing tags, packaging, or proof of purchase.</li><li>Falls within one of the non-returnable categories listed below.</li></ul><p>Rejected returns will be sent back to the customer at the customer's expense.</p>"
+          }
+        },
+        "policy_4": {
+          "type": "policy",
+          "settings": {
+            "title": "Return Address",
+            "text": "<p><strong>GHLAM</strong><br>20 Pleasant Mews<br>Marangaroo WA 6064<br>Australia</p><p>Please do not send an item back before receiving return approval from GHLAM.</p>"
+          }
+        },
+        "policy_5": {
+          "type": "policy",
+          "settings": {
+            "title": "Non-Returnable Items",
+            "text": "<p>For hygiene and clearance reasons, the following items cannot be returned, exchanged, or credited:</p><p><strong>Hijabs & Accessories</strong></p><ul><li>All Hijabs</li><li>Hijab Caps</li><li>Headbands</li><li>Bridal Hijabs</li><li>Hijab Pins</li><li>Jewellery</li><li>All Accessories</li></ul><p>Please carefully review product descriptions, sizing, fabric composition, and measurements before purchasing.</p>"
+          }
+        },
+        "policy_6": {
+          "type": "policy",
+          "settings": {
+            "title": "Clearance & Sale Items",
+            "text": "<p>All Clearance, Outlet, and Sale Collection items are Final Sale.</p><p>These items cannot be returned, exchanged, or refunded.</p><p>Some final sale products may have minor imperfections due to long-term storage. Where applicable, this will be reflected in the pricing.</p><p>If you have any questions before purchasing, please contact us.</p>"
+          }
+        },
+        "policy_7": {
+          "type": "policy",
+          "settings": {
+            "title": "Flash Sale Purchases",
+            "text": "<p>Products purchased during a Flash Sale remain eligible for exchange or store credit, provided they are not from the Sale Collection.</p><p>Items purchased from the Sale Collection remain Final Sale.</p>"
+          }
+        },
+        "policy_8": {
+          "type": "policy",
+          "settings": {
+            "title": "Product Images & Sizing",
+            "text": "<p>Our sizing charts are provided as a guide only.</p><p>We encourage customers to carefully review all product descriptions, garment measurements, and fabric details before placing an order.</p><p>While every effort is made to accurately display product colours, variations may occur due to lighting, photography, and individual screen settings.</p>"
+          }
+        },
+        "policy_9": {
+          "type": "policy",
+          "settings": {
+            "title": "Afterpay Orders",
+            "text": "<p>Orders purchased using Afterpay follow the same Return & Refund Policy.</p><p>Please note that your payment agreement with Afterpay is separate from GHLAM. Customers must continue making scheduled Afterpay repayments while their return is being processed.</p>"
+          }
+        },
+        "policy_10": {
+          "type": "policy",
+          "settings": {
+            "title": "Faulty, Damaged or Incorrect Items",
+            "text": "<p>We take great pride in the quality of every GHLAM product.</p><p>If you receive an item that is faulty, damaged, or incorrect, please contact us immediately upon receiving your order.</p><p>To assist us, please provide:</p><ul><li>Your order number.</li><li>A description of the issue.</li><li>Clear photographs showing the fault.</li></ul><p>Eligible faulty items may qualify for a repair, replacement, exchange, or refund in accordance with Australian Consumer Law.</p><p>If your claim is approved, refunds will be processed to your original payment method.</p><p>Please allow your financial institution additional time to process the refund after it has been issued.</p>"
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Need Assistance?",
+            "text": "<p>If you have any questions regarding returns, exchanges, or your order, our customer support team is here to help.</p>",
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "policy_1",
+        "policy_2",
+        "policy_3",
+        "policy_4",
+        "policy_5",
+        "policy_6",
+        "policy_7",
+        "policy_8",
+        "policy_9",
+        "policy_10",
+        "contact"
+      ],
+      "settings": {
+        "eyebrow": "GHLAM",
+        "heading": "Terms and Conditions",
+        "description": "<p>At GHLAM, we are committed to providing premium-quality products and exceptional customer service. Please read this policy carefully before placing your order.</p>",
+        "updated": "18 July 2026"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

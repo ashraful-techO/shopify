@@ -1,3 +1,7 @@
+/* =========================================================
+   GHLAM HERO SLIDER
+========================================================= */
+
 .ghlam-hero-slider {
     position: relative;
     width: 100%;
@@ -5,6 +9,16 @@
     background: #e9dfd4;
     color: var(--ghlam-hero-text);
 }
+
+.ghlam-hero-slider *,
+.ghlam-hero-slider *::before,
+.ghlam-hero-slider *::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   VIEWPORT AND TRACK
+========================================================= */
 
 .ghlam-hero-slider__viewport {
     position: relative;
@@ -18,6 +32,10 @@
     width: 100%;
     height: 100%;
 }
+
+/* =========================================================
+   SLIDES
+========================================================= */
 
 .ghlam-hero-slide {
     position: absolute;
@@ -35,6 +53,10 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+/* =========================================================
+   MEDIA
+========================================================= */
 
 .ghlam-hero-slide__media {
     position: absolute;
@@ -61,23 +83,32 @@
     display: none;
 }
 
+/* =========================================================
+   OVERLAY
+========================================================= */
+
 .ghlam-hero-slide__overlay {
     position: absolute;
-    inset: 0;
     z-index: 1;
+    inset: 0;
     background: #1e1814;
     opacity: var(--overlay-opacity);
     pointer-events: none;
 }
 
+/* =========================================================
+   CONTENT POSITION
+========================================================= */
+
 .ghlam-hero-slide__content {
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: center;
-    width: min(calc(100% - 100px), 1440px);
+    align-items: flex-end;
+    width: min(calc(100% - 84px), 1440px);
     height: 100%;
     margin-inline: auto;
+    padding-bottom: 56px;
 }
 
 .ghlam-hero-slide__content--desktop-left {
@@ -95,73 +126,177 @@
     text-align: right;
 }
 
+/* =========================================================
+   WHITE BORDER BOX
+========================================================= */
+
 .ghlam-hero-slide__content-inner {
-    width: min(100%, 560px);
+    position: relative;
+    display: block;
+    width: min(100%, 400px);
+    padding: 40px 42px;
+
+    border:
+        var(--ghlam-hero-border-width, 1px) solid var(--ghlam-hero-border-color, #ffffff);
+
+    border-radius: var(--ghlam-hero-border-radius, 0);
+    background: transparent;
 }
+
+/* =========================================================
+   EYEBROW
+========================================================= */
 
 .ghlam-hero-slide__eyebrow {
-    margin: 0 0 14px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
+    margin: 0 0 16px;
+    color: white;
+    font-family: var(--ghlam-hero-eyebrow-font);
+    font-size: min(var(--ghlam-hero-eyebrow-size, 12px),
+            12px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.9),
+        0 3px 10px rgba(255, 255, 255, 0.65),
+        0 0 12px rgba(1255, 255, 255, 0.2);
 }
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .ghlam-hero-slide__heading {
+    width: 100%;
+    max-width: 300px;
     margin: 0;
-    color: inherit;
-    font-family: var(--heading-font-family, serif);
-    font-size: clamp(42px, 5vw, 72px);
-    font-weight: 400;
-    line-height: 1.03;
-    letter-spacing: 0.01em;
+
+    color: white;
+    font-family: var(--ghlam-hero-heading-font);
+    font-size: min(var(--ghlam-hero-heading-size, 34px),
+            34px);
+    font-weight: 1000;
+    line-height: 1.14;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+
+    overflow-wrap: normal;
+    word-break: normal;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.4),
+        0 3px 10px rgba(255, 255, 255, 0.4),
+        0 0 12px rgba(1255, 255, 255, 0.2);
+
 }
 
-.ghlam-hero-slide__script {
-    margin: 16px 0 0;
-    font-family: cursive;
-    font-size: clamp(25px, 2.4vw, 38px);
-    line-height: 1.2;
-}
+/* =========================================================
+   DESCRIPTION
+========================================================= */
 
 .ghlam-hero-slide__text {
-    max-width: 480px;
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.65;
+
+    width: 100%;
+    max-width: 100%;
+    margin-top: 18px;
+
+    color: white;
+    font-family: var(--ghlam-hero-body-font);
+    font-size: var(--ghlam-hero-body-size, 14px);
+    line-height: 1.6;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.4),
+        0 3px 10px rgba(255, 255, 255, 0.4),
+        0 0 12px rgba(1255, 255, 255, 0.2);
 }
 
 .ghlam-hero-slide__text p {
+    color: white;
     margin: 0;
 }
+
+/* =========================================================
+   SCRIPT TEXT — SEPARATE LINE
+========================================================= */
+
+.ghlam-hero-slide__script {
+
+    position: relative;
+    display: table;
+    width: fit-content;
+    margin: 24px 0 0;
+    padding-bottom: 6px;
+
+    color: white;
+    font-family: var(--ghlam-hero-script-font);
+    font-size: min(var(--ghlam-hero-script-size, 17px),
+            17px);
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    text-shadow:
+        0 1px 2px rgba(255, 255, 255, 0.4),
+        0 3px 10px rgba(255, 255, 255, 0.4),
+        0 0 12px rgba(1255, 255, 255, 0.2);
+}
+
+.ghlam-hero-slide__script::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    content: "";
+}
+
+/* =========================================================
+   BUTTON — SEPARATE LINE
+========================================================= */
 
 .ghlam-hero-slide__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
-    margin-top: 28px;
-    padding: 0 34px;
+
+    width: auto;
+    min-height: 42px;
+    margin: 24px 0 0;
+    padding: 0 18px;
+
     border: 1px solid var(--ghlam-hero-button-bg);
     background: var(--ghlam-hero-button-bg);
     color: var(--ghlam-hero-button-text);
-    font-size: 12px;
+
+    font-family: var(--ghlam-hero-button-font);
+    font-size: min(var(--ghlam-hero-button-size, 9px),
+            9px);
     font-weight: 600;
-    letter-spacing: 0.14em;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
+
     transition:
         background-color 0.25s ease,
         border-color 0.25s ease,
-        color 0.25s ease;
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .ghlam-hero-slide__button:hover {
     border-color: #2b241f;
     background: #2b241f;
-    color: #fff;
+    color: #ffffff;
+    transform: translateY(-1px);
 }
+
+/* =========================================================
+   DOTS
+========================================================= */
 
 .ghlam-hero-slider__dots {
     position: absolute;
@@ -169,6 +304,7 @@
     bottom: 28px;
     left: 50%;
     display: flex;
+    align-items: center;
     gap: 10px;
     transform: translateX(-50%);
 }
@@ -180,7 +316,7 @@
     border: 1px solid currentColor;
     border-radius: 50%;
     background: transparent;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -188,17 +324,24 @@
     background: currentColor;
 }
 
+/* =========================================================
+   ARROWS
+========================================================= */
+
 .ghlam-hero-slider__arrow {
     position: absolute;
     z-index: 4;
     top: 50%;
+
     width: 46px;
     height: 46px;
     padding: 0;
+
     border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 50%;
     background: rgba(25, 20, 16, 0.18);
-    color: #fff;
+    color: #ffffff;
+
     cursor: pointer;
     font-size: 30px;
     transform: translateY(-50%);
@@ -211,6 +354,75 @@
 .ghlam-hero-slider__arrow--next {
     right: 24px;
 }
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media screen and (min-width: 1200px) {
+    .ghlam-hero-slide__content-inner {
+        width: 420px;
+        padding: 44px 48px;
+    }
+
+    .ghlam-hero-slide__heading {
+        max-width: 320px;
+        font-size: min(var(--ghlam-hero-heading-size, 36px),
+                36px);
+    }
+
+    .ghlam-hero-slide__script {
+        font-size: min(var(--ghlam-hero-script-size, 18px),
+                18px);
+    }
+
+    .ghlam-hero-slide__button {
+        min-height: 42px;
+        padding-inline: 18px;
+    }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (min-width: 750px) and (max-width: 1100px) {
+    .ghlam-hero-slide__content {
+        width: calc(100% - 64px);
+        padding-bottom: 48px;
+    }
+
+    .ghlam-hero-slide__content-inner {
+        width: min(100%, 380px);
+        padding: 36px;
+    }
+
+    .ghlam-hero-slide__heading {
+        max-width: 280px;
+        font-size: min(var(--ghlam-hero-heading-size, 30px),
+                30px);
+    }
+
+    .ghlam-hero-slide__eyebrow {
+        font-size: min(var(--ghlam-hero-eyebrow-size, 11px),
+                11px);
+    }
+
+    .ghlam-hero-slide__script {
+        font-size: min(var(--ghlam-hero-script-size, 15px),
+                15px);
+    }
+
+    .ghlam-hero-slide__button {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 8px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media screen and (max-width: 749px) {
     .ghlam-hero-slider__viewport {
@@ -225,21 +437,19 @@
     .ghlam-hero-slide__image--mobile,
     .ghlam-hero-slide__video--mobile {
         display: block;
-        object-position:
-            var(--mobile-position-x) var(--mobile-position-y);
-    }
-
-    .ghlam-hero-slide__image--desktop:last-child,
-    .ghlam-hero-slide__video--desktop:last-child {
-        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         object-position:
             var(--mobile-position-x) var(--mobile-position-y);
     }
 
     .ghlam-hero-slide__content {
-        width: calc(100% - 40px);
-        padding-top: 30px;
-        padding-bottom: 90px;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0 20px 72px;
     }
 
     .ghlam-hero-slide__content--mobile-left {
@@ -258,29 +468,64 @@
     }
 
     .ghlam-hero-slide__content-inner {
-        width: min(62%, 330px);
+        display: block;
+        width: 82%;
+        max-width: 330px;
+        padding: 30px 24px;
+    }
+
+    .ghlam-hero-slide__content--mobile-left .ghlam-hero-slide__content-inner {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .ghlam-hero-slide__content--mobile-center .ghlam-hero-slide__content-inner {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .ghlam-hero-slide__content--mobile-right .ghlam-hero-slide__content-inner {
+        margin-right: 0;
+        margin-left: auto;
+    }
+
+    .ghlam-hero-slide__eyebrow {
+        margin: 0 0 18px;
+        font-size: var(--ghlam-hero-mobile-eyebrow-size, 11px);
+        line-height: 1.3;
+        letter-spacing: 0.16em;
     }
 
     .ghlam-hero-slide__heading {
-        font-size: clamp(31px, 9vw, 46px);
-        line-height: 1.05;
+        max-width: 245px;
+        font-size: var(--ghlam-hero-mobile-heading-size, 30px);
+        line-height: 1.12;
+        letter-spacing: 0.08em;
     }
 
     .ghlam-hero-slide__script {
-        margin-top: 12px;
-        font-size: 25px;
+        display: table;
+        width: fit-content;
+        margin: 22px 0 0;
+        padding-bottom: 5px;
+        font-size: var(--ghlam-hero-mobile-script-size, 18px);
+        line-height: 1.2;
     }
 
     .ghlam-hero-slide__text {
-        margin-top: 15px;
-        font-size: 14px;
+        max-width: 100%;
+        margin-top: 16px;
+        font-size: var(--ghlam-hero-mobile-body-size, 13px);
+        line-height: 1.55;
     }
 
     .ghlam-hero-slide__button {
-        min-height: 48px;
-        margin-top: 22px;
-        padding: 0 20px;
-        font-size: 10px;
+        display: inline-flex;
+        width: auto;
+        min-height: 42px;
+        margin: 20px 0 0;
+        padding: 0 18px;
+        font-size: var(--ghlam-hero-mobile-button-size, 10px);
     }
 
     .ghlam-hero-slider__dots {
@@ -289,5 +534,47 @@
 
     .ghlam-hero-slider__arrow {
         display: none;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width: 390px) {
+    .ghlam-hero-slide__content {
+        padding-right: 16px;
+        padding-bottom: 64px;
+        padding-left: 16px;
+    }
+
+    .ghlam-hero-slide__content-inner {
+        width: 86%;
+        max-width: 305px;
+        padding: 26px 21px;
+    }
+
+    .ghlam-hero-slide__heading {
+        max-width: 220px;
+        font-size: min(var(--ghlam-hero-mobile-heading-size, 27px),
+                27px);
+    }
+
+    .ghlam-hero-slide__eyebrow {
+        font-size: min(var(--ghlam-hero-mobile-eyebrow-size, 10px),
+                10px);
+        letter-spacing: 0.14em;
+    }
+
+    .ghlam-hero-slide__script {
+        font-size: min(var(--ghlam-hero-mobile-script-size, 17px),
+                17px);
+    }
+
+    .ghlam-hero-slide__button {
+        min-height: 40px;
+        padding-inline: 15px;
+        font-size: min(var(--ghlam-hero-mobile-button-size, 9px),
+                9px);
     }
 }

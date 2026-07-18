@@ -1,0 +1,73 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "ghlam-about-page",
+      "blocks": {
+        "value_1": {
+          "type": "value",
+          "settings": {
+            "heading": "Modesty",
+            "text": "<p>Thoughtful designs that celebrate confidence, grace, and individuality.</p>"
+          }
+        },
+        "value_2": {
+          "type": "value",
+          "settings": {
+            "heading": "Quality",
+            "text": "<p>Premium fabrics, refined finishes, and careful attention to every detail.</p>"
+          }
+        },
+        "value_3": {
+          "type": "value",
+          "settings": {
+            "heading": "Craftsmanship",
+            "text": "<p>Timeless pieces designed with purpose and created to be worn with confidence.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "value_1",
+        "value_2",
+        "value_3"
+      ],
+      "settings": {
+        "background_color": "#fffefc",
+        "text_color": "#27231f",
+        "muted_text_color": "#6f6861",
+        "border_color": "#e4ddd4",
+        "accent_color": "#a98455",
+        "max_width": 1500,
+        "section_gap": 100,
+        "eyebrow": "Our Story",
+        "heading": "About Us",
+        "intro_text": "<h4>Founded in 2017, Ghlam is a family-owned Australian brand redefining modest fashion through timeless elegance, premium quality, and thoughtful design.<br/><br/>We create beautifully crafted abayas, dresses, hijabs, and accessories that blend modern style with timeless modesty, with selected styles available in sizes AU 6–24 (EU 36–54).<br/><br/>At Ghlam, we are committed to exceptional quality, outstanding service, and helping every woman feel confident, beautiful, and comfortable.<br/><br/>Thank you for being part of the Ghlam family.</h4>",
+        "hero_image": "shopify://shop_images/E844D65E-2489-44B0-90EE-F0D9CA756593.jpg",
+        "story_heading": "Designed With Purpose",
+        "story_text": "<h4>GHLAM is dedicated to empowering women to dress with confidence and grace without compromise.</h4><h4>Every piece is thoughtfully designed to reflect beauty in simplicity, combining contemporary trends with traditional modesty.</h4>",
+        "story_image": "shopify://shop_images/225D6230-E2E4-4980-A8D4-89D23AE125EA.jpg",
+        "mission_heading": "Our Mission",
+        "mission_text": "<h4>Our mission is to redefine modern modest fashion by blending faith, elegance, and contemporary design.</h4><h4>We aim to inspire a community of women who view modesty as a true expression of strength, beauty, and self-respect.</h4>",
+        "mission_image": "shopify://shop_images/17D079B5-0A0D-4A30-869A-33ABED071DE4.png",
+        "values_eyebrow": "What Defines Us",
+        "values_heading": "Our Values",
+        "brand_logo": "shopify://shop_images/images-removebg-preview.png",
+        "brand_heading": "The GHLAM Philosophy",
+        "brand_text": "<h4>At GHLAM, we believe modest fashion has a place on every runway and in every wardrobe.</h4><h4>Our collections are inspired by the confidence that comes from feeling beautiful, comfortable, and true to yourself.</h4><h4>We value faith, modesty, craftsmanship, quality, and originality at the heart of every piece.</h4>",
+        "button_label": "Shop the Collection",
+        "button_link": "shopify://collections"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

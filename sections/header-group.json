@@ -11,27 +11,82 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "ghlam_announcement_bar_CHVXaM": {
+      "type": "ghlam-announcement-bar",
+      "name": "GHLAM announcement bar",
+      "settings": {
+        "message": "Super sell upto 70% off!",
+        "message_link": "shopify://collections/new-in",
+        "open_link_new_tab": true,
+        "desktop_text_size": 17,
+        "mobile_text_size": 14,
+        "text_weight": "600",
+        "letter_spacing": 8,
+        "show_message_icon": true,
+        "message_icon": "shopify://shop_images/rsz_1red_product_sale_tag-removebg-preview.png",
+        "desktop_icon_size": 35,
+        "mobile_icon_size": 18,
+        "icon_gap": 8,
+        "enable_countdown": false,
+        "countdown_end_date": "2026-11-27T23:59:59",
+        "desktop_timer_size": 25,
+        "mobile_timer_size": 20,
+        "timer_separator": ":",
+        "show_countdown_labels": false,
+        "days_label": "Days",
+        "hours_label": "Hrs",
+        "minutes_label": "Mins",
+        "seconds_label": "Secs",
+        "expired_action": "show_zero",
+        "expired_message": "Sale ended",
+        "enable_button": false,
+        "button_text": "Shop now",
+        "button_link": "shopify://collections/on-sale",
+        "open_button_new_tab": true,
+        "button_text_size": 10,
+        "button_radius": 8,
+        "button_uppercase": true,
+        "background_color": "#f7e0cb",
+        "text_color": "#0e0c0c",
+        "accent_color": "#f4b942",
+        "button_background": "#ffffff",
+        "button_text_color": "#0e0c0c",
+        "desktop_alignment": "center",
+        "desktop_height": 94,
+        "desktop_gap": 35,
+        "content_width": 1400,
+        "mobile_layout": "row",
+        "mobile_alignment": "center",
+        "mobile_height": 45,
+        "mobile_gap": 4,
+        "mobile_vertical_padding": 5,
+        "enable_sticky": false,
+        "enable_close_button": true,
+        "remember_close": true
+      }
+    },
     "announcement_bar_UqygXU": {
       "type": "announcement-bar",
       "blocks": {
         "message_FdieBR": {
           "type": "message",
           "settings": {
-            "text": "Free Australia Wide Shipping On Orders over $150"
+            "text": "Super sell up to 70% off"
           }
         }
       },
       "block_order": [
         "message_FdieBR"
       ],
+      "disabled": true,
       "name": "t:sections.announcement_bar.name",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-9103a7b5-8407-4d2c-abb8-c9919b395ee8",
         "enable_sticky": false,
         "autoplay": true,
         "cycle_speed": 5,
-        "desktop_font_size": 11,
-        "mobile_font_size": 10
+        "desktop_font_size": 15,
+        "mobile_font_size": 12
       }
     },
     "countdown_condensed_4BV7q4": {
@@ -104,9 +159,9 @@
         "mega_menu_JeKhjA"
       ],
       "settings": {
-        "color_scheme": "scheme-7e75a000-da7f-4bd4-b9fa-4ef1aa71c008",
+        "color_scheme": "scheme-2",
         "enable_sticky": true,
-        "hide_on_scroll": false,
+        "hide_on_scroll": true,
         "show_separation_border": true,
         "reduce_padding": true,
         "logo": "shopify://shop_images/FullLogo_Transparent_NoBuffer_4.png",
@@ -128,12 +183,13 @@
         "show_country_name": false,
         "show_country_flag": true,
         "show_locale_selector": false,
-        "transparent_header_text_color": "#ffffff",
+        "transparent_header_text_color": "rgba(0,0,0,0)",
         "transparent_logo": "shopify://shop_images/images-removebg-preview.png"
       }
     }
   },
   "order": [
+    "ghlam_announcement_bar_CHVXaM",
     "announcement_bar_UqygXU",
     "countdown_condensed_4BV7q4",
     "header"

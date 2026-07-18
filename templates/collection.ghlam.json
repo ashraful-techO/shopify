@@ -9,16 +9,17 @@
  */
 {
   "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {}
+    },
     "main": {
-      "type": "main-page",
-      "settings": {
-        "color_scheme": "",
-        "show_title": true,
-        "page_width": "xs"
-      }
+      "type": "main-collection-ghlam",
+      "settings": {}
     }
   },
   "order": [
+    "banner",
     "main"
   ]
 }

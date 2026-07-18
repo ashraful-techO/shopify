@@ -1,12 +1,17 @@
 {{ 'ghlam-hero-slider.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'ghlam-hero-slider.js' | asset_url }}" defer></script>
+<script src="{{ 'ghlam-hero-slider.js' | asset_url }}" defer="defer"></script>
 
 <section
   id="GhlamHero-{{ section.id }}"
   class="ghlam-hero-slider"
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %}
   data-ghlam-hero
   data-autoplay="{{ section.settings.autoplay }}"
   data-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | escape }}"
   style="
     --ghlam-hero-desktop-height: {{ section.settings.desktop_height }}px;
     --ghlam-hero-mobile-height: {{ section.settings.mobile_height }}px;
@@ -18,10 +23,21 @@
   <div class="ghlam-hero-slider__viewport">
     <div class="ghlam-hero-slider__track" data-ghlam-track>
       {% for block in section.blocks %}
+        {% liquid
+          if forloop.first
+            assign image_loading = 'eager'
+            assign image_priority = 'high'
+          else
+            assign image_loading = 'lazy'
+            assign image_priority = 'auto'
+          endif
+        %}
+
         <article
           class="ghlam-hero-slide{% if forloop.first %} is-active{% endif %}"
           data-ghlam-slide
           data-slide-index="{{ forloop.index0 }}"
+          aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
           {{ block.shopify_attributes }}
           style="
             --desktop-position-x: {{ block.settings.desktop_position_x }}%;
@@ -32,101 +48,167 @@
           "
         >
           <div class="ghlam-hero-slide__media">
-            {% if block.type == 'image_slide' %}
-              {% if block.settings.desktop_image != blank %}
-                {% liquid
-                  assign desktop_alt = block.settings.desktop_image.alt
-                  if desktop_alt == blank
-                    assign desktop_alt = block.settings.heading
-                  endif
-                %}
+            {% case block.type %}
+              {% when 'image_slide' %}
+                {% if block.settings.desktop_image != blank %}
+                  {% liquid
+                    assign desktop_alt = block.settings.desktop_image.alt
 
-                {{
-                  block.settings.desktop_image
-                  | image_url: width: 2400
-                  | image_tag:
-                    class: 'ghlam-hero-slide__image ghlam-hero-slide__image--desktop',
-                    loading: forloop.first | default: false | if: 'eager', else: 'lazy',
-                    fetchpriority: forloop.first | default: false | if: 'high', else: 'auto',
-                    widths: '750, 1100, 1500, 1800, 2100, 2400',
-                    sizes: '100vw',
-                    alt: desktop_alt
-                }}
-              {% else %}
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'ghlam-hero-slide__placeholder' }}
-              {% endif %}
+                    if desktop_alt == blank
+                      assign desktop_alt = block.settings.heading
+                    endif
+                  %}
 
-              {% if block.settings.mobile_image != blank %}
-                {% liquid
-                  assign mobile_alt = block.settings.mobile_image.alt
-                  if mobile_alt == blank
-                    assign mobile_alt = block.settings.heading
-                  endif
-                %}
+                  {{
+                    block.settings.desktop_image
+                    | image_url: width: 2400
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--desktop',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '750, 1100, 1500, 1800, 2100, 2400',
+                      sizes: '100vw',
+                      alt: desktop_alt
+                  }}
+                {% else %}
+                  {{
+                    'lifestyle-1'
+                    | placeholder_svg_tag: 'ghlam-hero-slide__placeholder ghlam-hero-slide__placeholder--desktop'
+                  }}
+                {% endif %}
 
-                {{
-                  block.settings.mobile_image
-                  | image_url: width: 1200
-                  | image_tag:
-                    class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
-                    loading: forloop.first | default: false | if: 'eager', else: 'lazy',
-                    fetchpriority: forloop.first | default: false | if: 'high', else: 'auto',
-                    widths: '480, 640, 800, 1000, 1200',
-                    sizes: '100vw',
-                    alt: mobile_alt
-                }}
-              {% endif %}
-            {% elsif block.type == 'video_slide' %}
-              {% if block.settings.desktop_video != blank %}
-                {{
-                  block.settings.desktop_video
-                  | video_tag:
-                    class: 'ghlam-hero-slide__video ghlam-hero-slide__video--desktop',
-                    autoplay: true,
-                    loop: true,
-                    muted: true,
-                    controls: false,
-                    playsinline: true,
-                    preload: 'metadata'
-                }}
-              {% elsif block.settings.desktop_poster != blank %}
-                {{
-                  block.settings.desktop_poster
-                  | image_url: width: 2400
-                  | image_tag:
-                    class: 'ghlam-hero-slide__image ghlam-hero-slide__image--desktop',
-                    loading: 'lazy',
-                    widths: '750, 1100, 1500, 1800, 2100, 2400',
-                    sizes: '100vw',
-                    alt: block.settings.heading
-                }}
-              {% endif %}
+                {% if block.settings.mobile_image != blank %}
+                  {% liquid
+                    assign mobile_alt = block.settings.mobile_image.alt
 
-              {% if block.settings.mobile_video != blank %}
-                {{
-                  block.settings.mobile_video
-                  | video_tag:
-                    class: 'ghlam-hero-slide__video ghlam-hero-slide__video--mobile',
-                    autoplay: true,
-                    loop: true,
-                    muted: true,
-                    controls: false,
-                    playsinline: true,
-                    preload: 'metadata'
-                }}
-              {% elsif block.settings.mobile_poster != blank %}
-                {{
-                  block.settings.mobile_poster
-                  | image_url: width: 1200
-                  | image_tag:
-                    class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
-                    loading: 'lazy',
-                    widths: '480, 640, 800, 1000, 1200',
-                    sizes: '100vw',
-                    alt: block.settings.heading
-                }}
-              {% endif %}
-            {% endif %}
+                    if mobile_alt == blank
+                      assign mobile_alt = block.settings.heading
+                    endif
+                  %}
+
+                  {{
+                    block.settings.mobile_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '480, 640, 800, 1000, 1200',
+                      sizes: '100vw',
+                      alt: mobile_alt
+                  }}
+                {% elsif block.settings.desktop_image != blank %}
+                  {{
+                    block.settings.desktop_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '480, 640, 800, 1000, 1200',
+                      sizes: '100vw',
+                      alt: desktop_alt
+                  }}
+                {% endif %}
+
+              {% when 'video_slide' %}
+                {% if block.settings.desktop_video != blank %}
+                  {{
+                    block.settings.desktop_video
+                    | video_tag:
+                      class: 'ghlam-hero-slide__video ghlam-hero-slide__video--desktop',
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      controls: false,
+                      playsinline: true,
+                      preload: 'metadata'
+                  }}
+                {% elsif block.settings.desktop_poster != blank %}
+                  {% liquid
+                    assign desktop_poster_alt = block.settings.desktop_poster.alt
+
+                    if desktop_poster_alt == blank
+                      assign desktop_poster_alt = block.settings.heading
+                    endif
+                  %}
+
+                  {{
+                    block.settings.desktop_poster
+                    | image_url: width: 2400
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--desktop',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '750, 1100, 1500, 1800, 2100, 2400',
+                      sizes: '100vw',
+                      alt: desktop_poster_alt
+                  }}
+                {% else %}
+                  {{
+                    'lifestyle-1'
+                    | placeholder_svg_tag: 'ghlam-hero-slide__placeholder ghlam-hero-slide__placeholder--desktop'
+                  }}
+                {% endif %}
+
+                {% if block.settings.mobile_video != blank %}
+                  {{
+                    block.settings.mobile_video
+                    | video_tag:
+                      class: 'ghlam-hero-slide__video ghlam-hero-slide__video--mobile',
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      controls: false,
+                      playsinline: true,
+                      preload: 'metadata'
+                  }}
+                {% elsif block.settings.mobile_poster != blank %}
+                  {% liquid
+                    assign mobile_poster_alt = block.settings.mobile_poster.alt
+
+                    if mobile_poster_alt == blank
+                      assign mobile_poster_alt = block.settings.heading
+                    endif
+                  %}
+
+                  {{
+                    block.settings.mobile_poster
+                    | image_url: width: 1200
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '480, 640, 800, 1000, 1200',
+                      sizes: '100vw',
+                      alt: mobile_poster_alt
+                  }}
+                {% elsif block.settings.desktop_video != blank %}
+                  {{
+                    block.settings.desktop_video
+                    | video_tag:
+                      class: 'ghlam-hero-slide__video ghlam-hero-slide__video--mobile',
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      controls: false,
+                      playsinline: true,
+                      preload: 'metadata'
+                  }}
+                {% elsif block.settings.desktop_poster != blank %}
+                  {{
+                    block.settings.desktop_poster
+                    | image_url: width: 1200
+                    | image_tag:
+                      class: 'ghlam-hero-slide__image ghlam-hero-slide__image--mobile',
+                      loading: image_loading,
+                      fetchpriority: image_priority,
+                      widths: '480, 640, 800, 1000, 1200',
+                      sizes: '100vw',
+                      alt: desktop_poster_alt
+                  }}
+                {% endif %}
+            {% endcase %}
           </div>
 
           <div class="ghlam-hero-slide__overlay"></div>
@@ -164,9 +246,17 @@
               {% endif %}
 
               {% if block.settings.button_label != blank %}
+                {% liquid
+                  assign hero_button_link = block.settings.button_link
+
+                  if hero_button_link == blank
+                    assign hero_button_link = routes.all_products_collection_url
+                  endif
+                %}
+
                 <a
                   class="ghlam-hero-slide__button"
-                  href="{{ block.settings.button_link | default: routes.all_products_collection_url }}"
+                  href="{{ hero_button_link }}"
                 >
                   {{ block.settings.button_label }}
                 </a>
@@ -185,7 +275,7 @@
           aria-label="Previous slide"
           data-ghlam-previous
         >
-          ‹
+          <span aria-hidden="true">‹</span>
         </button>
 
         <button
@@ -194,12 +284,16 @@
           aria-label="Next slide"
           data-ghlam-next
         >
-          ›
+          <span aria-hidden="true">›</span>
         </button>
       {% endif %}
 
       {% if section.settings.show_dots %}
-        <div class="ghlam-hero-slider__dots" aria-label="Slideshow navigation">
+        <div
+          class="ghlam-hero-slider__dots"
+          role="group"
+          aria-label="Slideshow navigation"
+        >
           {% for block in section.blocks %}
             <button
               class="ghlam-hero-slider__dot{% if forloop.first %} is-active{% endif %}"
@@ -221,6 +315,19 @@
   "tag": "section",
   "class": "shopify-section--ghlam-hero",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "Uses the native Prestige transparent header when this is the first homepage section.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Homepage promotional slideshow"
+    },
     {
       "type": "range",
       "id": "desktop_height",
@@ -276,8 +383,8 @@
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text",
-      "default": "#2B241F"
+      "label": "Hero text color",
+      "default": "#FFFFFF"
     },
     {
       "type": "color",
@@ -305,7 +412,8 @@
         {
           "type": "image_picker",
           "id": "mobile_image",
-          "label": "Mobile image"
+          "label": "Mobile image",
+          "info": "Use a portrait image for the best mobile result."
         },
         {
           "type": "range",
@@ -395,9 +503,18 @@
           "id": "desktop_alignment",
           "label": "Desktop content position",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         },
@@ -406,9 +523,18 @@
           "id": "mobile_alignment",
           "label": "Mobile content position",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         }
@@ -426,7 +552,7 @@
         {
           "type": "image_picker",
           "id": "desktop_poster",
-          "label": "Desktop poster"
+          "label": "Desktop fallback image"
         },
         {
           "type": "video",
@@ -436,7 +562,7 @@
         {
           "type": "image_picker",
           "id": "mobile_poster",
-          "label": "Mobile poster"
+          "label": "Mobile fallback image"
         },
         {
           "type": "range",
@@ -526,9 +652,18 @@
           "id": "desktop_alignment",
           "label": "Desktop content position",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         },
@@ -537,9 +672,18 @@
           "id": "mobile_alignment",
           "label": "Mobile content position",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         }

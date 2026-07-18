@@ -50,8 +50,9 @@
 .ghlam-category-card__placeholder {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: center center;
     transition: transform 0.4s ease;
 }
 
@@ -105,6 +106,19 @@
 }
 
 /* ========================================
+   DESKTOP
+======================================== */
+
+@media screen and (min-width: 1000px) {
+
+    .ghlam-category-card__image,
+    .ghlam-category-card__placeholder {
+        aspect-ratio: 4 / 5;
+        object-position: center 25%;
+    }
+}
+
+/* ========================================
    TABLET
 ======================================== */
 
@@ -115,6 +129,12 @@
 
     .ghlam-category-grid__items {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ghlam-category-card__image,
+    .ghlam-category-card__placeholder {
+        aspect-ratio: 4 / 5;
+        object-position: center center;
     }
 }
 
@@ -147,6 +167,7 @@
     .ghlam-category-card__image,
     .ghlam-category-card__placeholder {
         aspect-ratio: 1 / 1.15;
+        object-position: center center;
     }
 
     .ghlam-category-card__content {

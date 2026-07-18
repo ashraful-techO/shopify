@@ -1,0 +1,55 @@
+{%- liquid
+  assign matched_product_option = null
+  assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ','
+
+  for color_label in color_label_list
+    if product.options_by_name[color_label] != blank
+      assign matched_product_option = product.options_by_name[color_label]
+      break
+    endif
+  endfor
+
+  if matched_product_option == blank
+    for product_option in product.options_with_values
+      assign values_with_swatch = product_option.values | where: 'swatch'
+
+      if values_with_swatch.size > 0
+        assign matched_product_option = product_option
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{%- if matched_product_option != blank -%}
+  {%- case settings.product_color_display -%}
+    {%- when 'count' -%}
+      <p class="smallcaps text-subdued">
+        {{- 'product.general.available_colors_count'
+          | t: count: matched_product_option.values.size
+        -}}
+      </p>
+
+    {%- when 'swatch' -%}
+      <fieldset class="ghlam-product-swatches">
+        <legend class="sr-only">
+          {{ matched_product_option.name }}
+        </legend>
+
+        {%- capture param_name -%}
+          swatch-{{ quick_buy_context }}-{{ section.id }}-{{ block.id }}-{{ product.id }}-{{ matched_product_option.position }}
+        {%- endcapture -%}
+
+        {%- for option_value in matched_product_option.values -%}
+          {%- render 'option-value',
+            type: 'swatch',
+            option_value: option_value,
+            param_name: param_name,
+            option_position: matched_product_option.position,
+            output_variant_media: true,
+            size: 'sm'
+          -%}
+        {%- endfor -%}
+      </fieldset>
+  {%- endcase -%}
+{%- endif -%}

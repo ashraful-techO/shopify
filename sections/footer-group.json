@@ -39,7 +39,7 @@
           "type": "menu",
           "settings": {
             "heading": "Legal",
-            "menu": "return-policy"
+            "menu": "terms-condition"
           }
         }
       },
@@ -57,6 +57,9 @@
         "email_placeholder": "Enter your email",
         "button_label": "SUBSCRIBE",
         "success_message": "Thank you for joining the GHLAM community.",
+        "logo": "shopify://shop_images/images-removebg-preview.png",
+        "logo_width_desktop": 190,
+        "logo_width_mobile": 170,
         "logo_text": "GHLAM",
         "social_heading": "FOLLOW US",
         "show_desktop_socials": true,

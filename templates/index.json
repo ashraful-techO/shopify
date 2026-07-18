@@ -15,15 +15,15 @@
         "image_slide_pqMEJr": {
           "type": "image_slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Enhance_Image.png",
-            "mobile_image": "shopify://shop_images/162B7258-EB4C-48FB-83AA-6EABD6408563.jpg",
+            "desktop_image": "shopify://shop_images/IMG_0336.jpg",
+            "mobile_image": "shopify://shop_images/IMG_0336.jpg",
             "desktop_position_x": 55,
             "desktop_position_y": 30,
             "mobile_position_x": 80,
             "mobile_position_y": 50,
             "overlay_opacity": 10,
-            "eyebrow": "",
-            "heading": "WRAPPED IN GLAMOUR\nROOTED IN MODESTY",
+            "eyebrow": "WRAPPED IN GLAMOUR",
+            "heading": "ROOTED IN MODESTY",
             "script_text": "Elegantly Yours",
             "text": "",
             "button_label": "SHOP THE COLLECTION",
@@ -38,15 +38,17 @@
       ],
       "name": "GHLAM hero slider",
       "settings": {
+        "allow_transparent_header": true,
+        "accessibility_label": "Homepage promotional slideshow",
         "desktop_height": 760,
         "mobile_height": 720,
         "autoplay": true,
-        "autoplay_speed": 6,
+        "autoplay_speed": 4,
         "show_arrows": false,
         "show_dots": true,
-        "text_color": "#2B241F",
-        "button_background": "#B89A5A",
-        "button_text_color": "#FFFFFF"
+        "text_color": "#2b241f",
+        "button_background": "#b89a5a",
+        "button_text_color": "#ffffff"
       }
     },
     "slideshow": {
@@ -212,7 +214,7 @@
             "title": "DRESSES",
             "show_subtitle": false,
             "subtitle": "SHOP NOW",
-            "collection": "",
+            "collection": "casual-dresses",
             "link": ""
           }
         },
@@ -223,7 +225,7 @@
             "title": "ABAYAS",
             "show_subtitle": false,
             "subtitle": "SHOP NOW",
-            "collection": "",
+            "collection": "abayas",
             "link": ""
           }
         },
@@ -234,7 +236,7 @@
             "title": "HIJABS",
             "show_subtitle": false,
             "subtitle": "SHOP NOW",
-            "collection": "",
+            "collection": "hijab-caps",
             "link": ""
           }
         },
@@ -245,7 +247,7 @@
             "title": "SETS",
             "show_subtitle": false,
             "subtitle": "SHOP NOW",
-            "collection": "",
+            "collection": "sets",
             "link": ""
           }
         }
@@ -260,9 +262,9 @@
       "settings": {
         "heading": "SHOP BY CATEGORY",
         "card_gap": 8,
-        "background_color": "#F8F3EE",
-        "text_color": "#FFFFFF",
-        "overlay_color": "#2B241F",
+        "background_color": "#f8f3ee",
+        "text_color": "#ffffff",
+        "overlay_color": "#2b241f",
         "overlay_opacity": 20
       }
     },
@@ -275,7 +277,7 @@
         "heading": "MORE THAN CLOTHING,\nIT’S A STATEMENT.",
         "text": "<p>Ghlam is where elegance meets intention. Every piece is thoughtfully designed to celebrate modesty and timeless beauty.</p>",
         "button_label": "OUR JOURNEY",
-        "button_link": "shopify://pages/about-us",
+        "button_link": "shopify://pages/about",
         "background_color": "#f8f3ee",
         "text_color": "#2b241f",
         "muted_text_color": "#6f655d",
@@ -350,6 +352,7 @@
         "image_9eiwCt",
         "image_yQL9AQ"
       ],
+      "disabled": true,
       "name": "SS - Feature #1",
       "settings": {
         "feature_title_custom": true,
@@ -406,205 +409,86 @@
         "section_radius": 0
       }
     },
-    "ss_testimonials_48_ULfkyq": {
-      "type": "ss-testimonials-48",
+    "ghlam_feature_bar_VwYtA3": {
+      "type": "ghlam-feature-bar",
       "blocks": {
-        "sub_heading_azrLQp": {
-          "type": "sub_heading",
+        "feature_33AhmU": {
+          "type": "feature",
           "settings": {
-            "sub_heading": "<p>HALF OF THE STOCK IS ALREADY SOLD!</p>",
-            "sub_heading_custom": false,
-            "sub_heading_font": "josefin_sans_n4",
-            "sub_heading_size": 12,
-            "sub_heading_size_mobile": 12,
-            "sub_heading_advanced": false,
-            "sub_heading_height": 130,
-            "sub_heading_mt": 0,
-            "sub_heading_mt_mobile": 0,
-            "background": true,
-            "sub_heading_radius": 100,
-            "sub_heading_border_thickness": 0,
-            "sub_heading_padding_horizontal": 16,
-            "sub_heading_padding_horizontal_mobile": 12,
-            "sub_heading_padding_vertical": 8,
-            "sub_heading_padding_vertical_mobile": 6,
-            "sub_heading_color": "#121212",
-            "sub_heading_bg_color": "#f7f7f7",
-            "sub_heading_border_color": "#121212"
+            "icon": "shopify://shop_images/air-mail.png",
+            "title": "WORLDWIDE SHIPPING",
+            "text": "Fast & reliable delivery"
           }
         },
-        "heading_nLChMc": {
-          "type": "heading",
+        "feature_JMe9yt": {
+          "type": "feature",
           "settings": {
-            "heading": "<h2>Ghlam</h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_accent_font": "playfair_n4",
-            "heading_size": 56,
-            "heading_size_mobile": 40,
-            "heading_advanced": false,
-            "heading_height": 130,
-            "heading_mt": 16,
-            "heading_mt_mobile": 16,
-            "heading_color": "#121212",
-            "heading_accent_color": "#afafaf"
+            "icon": "shopify://shop_images/LockIcon.svg",
+            "title": "Secure Checkout",
+            "text": "Shop with confidence"
           }
         },
-        "text_cCJ6Gd": {
-          "type": "text",
+        "feature_6YQE8h": {
+          "type": "feature",
           "settings": {
-            "text": "<p>Tell your story</p>",
-            "text_custom": false,
-            "text_font": "josefin_sans_n4",
-            "text_size": 24,
-            "text_size_mobile": 18,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_max_width": 100,
-            "text_max_width_mobile": 100,
-            "text_mt": 16,
-            "text_mt_mobile": 16,
-            "text_color": "#121212"
+            "icon": "shopify://shop_images/ProductReturnIcon.svg",
+            "title": "Easy Returns",
+            "text": "14 days return"
           }
         },
-        "testimonial_jEHRH7": {
-          "type": "testimonial",
+        "feature_nnPeyN": {
+          "type": "feature",
           "settings": {
-            "stars_count": 5,
-            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
-            "author": "Author's name",
-            "subcopy_author": "Subcoppy"
-          }
-        },
-        "testimonial_cNGWiF": {
-          "type": "testimonial",
-          "settings": {
-            "stars_count": 5,
-            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
-            "author": "Author's name",
-            "subcopy_author": "Subcoppy"
-          }
-        },
-        "testimonial_JcAy7e": {
-          "type": "testimonial",
-          "settings": {
-            "stars_count": 5,
-            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
-            "author": "Author's name",
-            "subcopy_author": "Subcoppy"
-          }
-        },
-        "testimonial_TR3qcr": {
-          "type": "testimonial",
-          "settings": {
-            "stars_count": 5,
-            "text": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>",
-            "author": "Author's name",
-            "subcopy_author": "Subcoppy"
+            "icon": "shopify://shop_images/RewardIcon.svg",
+            "title": "Premium Quality",
+            "text": "Crafted with care"
           }
         }
       },
       "block_order": [
-        "sub_heading_azrLQp",
-        "heading_nLChMc",
-        "text_cCJ6Gd",
-        "testimonial_jEHRH7",
-        "testimonial_cNGWiF",
-        "testimonial_JcAy7e",
-        "testimonial_TR3qcr"
+        "feature_33AhmU",
+        "feature_JMe9yt",
+        "feature_6YQE8h",
+        "feature_nnPeyN"
       ],
-      "name": "SS - Testimonials #48",
-      "settings": {
-        "content_align": "center",
-        "content_align_mobile": "center",
-        "scrolling_velocity": 150,
-        "scrolling_velocity_mobile": 146,
-        "reverse_direction": false,
-        "pause_hover": true,
-        "slider_advanced": false,
-        "scrolling_gap": 16,
-        "scrolling_gap_mobile": 16,
-        "cards_mt": 32,
-        "cards_mt_mobile": 16,
-        "card_padding_advanced": true,
-        "card_width": 290,
-        "card_width_mobile": 320,
-        "card_padding_horizontal": 16,
-        "card_padding_horizontal_mobile": 16,
-        "card_padding_vertical": 16,
-        "card_padding_vertical_mobile": 16,
-        "card_radius": 16,
-        "card_border_thickness": 0,
-        "card_shadow": true,
-        "card_shadow_color": "#959da5",
-        "card_content_align": "center",
-        "card_content_align_mobile": "center",
-        "author_image_size": 42,
-        "author_image_size_mobile": 42,
-        "author_image_radius": 40,
-        "author_image_border_thickness": 0,
-        "author_custom": false,
-        "author_font": "josefin_sans_n4",
-        "author_size": 14,
-        "author_size_mobile": 14,
-        "author_height": 130,
-        "subcopy_author_custom": false,
-        "subcopy_author_font": "josefin_sans_n4",
-        "subcopy_author_size": 12,
-        "subcopy_author_size_mobile": 12,
-        "subcopy_advanced": false,
-        "subcopy_author_height": 130,
-        "subcopy_author_mt": 4,
-        "subcopy_author_mt_mobile": 4,
-        "subcopy_text_length": 24,
-        "slide_stars_size": 16,
-        "slide_stars_size_mobile": 9,
-        "slide_stars_advanced": false,
-        "slide_stars_gap": 2,
-        "slide_stars_mt": 10,
-        "slide_stars_mt_mobile": 10,
-        "text_custom": false,
-        "text_font": "josefin_sans_n4",
-        "text_size": 14,
-        "text_size_mobile": 14,
-        "text_advanced": false,
-        "text_height": 150,
-        "text_mt": 12,
-        "text_mt_mobile": 12,
-        "text_color": "#121212",
-        "text_bg_color": "#121212",
-        "author_color": "#121212",
-        "subcopy_author_color": "#afafaf",
-        "card_bg_color": "#ffffff",
-        "card_border_color": "#121212",
-        "slide_stars_color": "#ffffff",
-        "slide_stars_bg_color": "#00b67a",
-        "slide_stars_bg_half_color": "#dddddd",
-        "author_image_color": "#ffffff",
-        "author_image_bg_color": "#121212",
-        "author_image_border_color": "#121212",
-        "background_style": "solid",
-        "background_color": "#ffffff",
-        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
-        "border_color": "#121212",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "width": "page",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
-      }
+      "name": "Ghlam Feature Bar",
+      "settings": {}
     },
     "1783664406d525d157": {
       "type": "apps",
       "blocks": {
+        "judge_me_reviews_cards_carousel_mzHyiF": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "product_reviews",
+            "products": [],
+            "star_rating": "4_to_5_star",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "product_image",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1100,
+            "corner_styling": "extra_round",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#f9f9f9",
+            "stars_color": "",
+            "arrows_color": "#000000",
+            "transition_speed": 5,
+            "header_text": "Customers are saying",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        },
         "instafeed_app_block_mqdWUG": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
@@ -619,12 +503,13 @@
             "link_alignment": "left",
             "link_color": "#000000",
             "background_color": "#f8f3ee",
-            "feed_id": "",
-            "html_area": "<h1>Connect with Insta</h1>"
+            "feed_id": "515479182398882",
+            "html_area": ""
           }
         }
       },
       "block_order": [
+        "judge_me_reviews_cards_carousel_mzHyiF",
         "instafeed_app_block_mqdWUG"
       ],
       "settings": {
@@ -634,111 +519,41 @@
         "remove_horizontal_spacing": false
       }
     },
-    "ss_instafeed_2_9w6EJk": {
-      "type": "ss-instafeed-2",
+    "ghlam_testimonials_M66E7w": {
+      "type": "ghlam-testimonials",
       "blocks": {
-        "slide_YGrt7n": {
-          "type": "slide",
+        "review_kVKC8A": {
+          "type": "review",
           "settings": {
-            "image": "shopify://shop_images/92A7BCEE-3726-49D6-8553-6C0DB23E7F4B.jpg",
-            "url": ""
+            "review": "The quality is unmatched and the designs are so elegant. Ghlam has become my go-to for every occasion.",
+            "author": "Amina"
           }
         },
-        "slide_LwpcQw": {
-          "type": "slide",
+        "review_8azKrb": {
+          "type": "review",
           "settings": {
-            "url": ""
+            "review": "Finally a brand that truly understands modesty and style. Every piece feels luxurious.",
+            "author": "Sara"
           }
         },
-        "slide_TLWKdG": {
-          "type": "slide",
+        "review_k8WAyF": {
+          "type": "review",
           "settings": {
-            "url": ""
-          }
-        },
-        "slide_DgyBkp": {
-          "type": "slide",
-          "settings": {
-            "url": ""
-          }
-        },
-        "slide_VnBBGL": {
-          "type": "slide",
-          "settings": {
-            "url": ""
-          }
-        },
-        "slide_Ab3Dyt": {
-          "type": "slide",
-          "settings": {
-            "url": ""
+            "review": "I felt so confident and beautiful in my Ghlam abaya. The attention to detail is amazing.",
+            "author": "Mariam"
           }
         }
       },
       "block_order": [
-        "slide_YGrt7n",
-        "slide_LwpcQw",
-        "slide_TLWKdG",
-        "slide_DgyBkp",
-        "slide_VnBBGL",
-        "slide_Ab3Dyt"
+        "review_kVKC8A",
+        "review_8azKrb",
+        "review_k8WAyF"
       ],
-      "name": "SS - Instafeed #2",
+      "disabled": true,
+      "name": "Ghlam Testimonials",
       "settings": {
-        "top": "Social (custom insta with link)",
-        "top_custom": false,
-        "top_font": "josefin_sans_n4",
-        "top_size": 13,
-        "top_height": 130,
-        "top_align": "center",
-        "heading": "Let’s be friends.",
-        "heading_custom": false,
-        "heading_font": "josefin_sans_n4",
-        "heading_size": 40,
-        "heading_height": 130,
-        "heading_align": "center",
-        "heading_mt": 12,
-        "subheading": "<h3>Join the convo with #AwesomeBrandTag</h3>",
-        "subheading_custom": false,
-        "subheading_font": "josefin_sans_n4",
-        "subheading_size": 16,
-        "subheading_height": 130,
-        "subheading_align": "center",
-        "subheading_mt": 12,
-        "slider_mt": 60,
-        "slider_row": "6",
-        "slider_row_mobile": "1",
-        "slider_gap": 20,
-        "slider_gap_mobile": 32,
-        "autoplay": false,
-        "autoplay_speed": 3,
-        "nav_size": 40,
-        "nav_size_mobile": 30,
-        "hide_nav": true,
-        "hide_nav_mobile": false,
-        "image_radius": 0,
-        "top_color": "#e69e6c",
-        "heading_color": "#746661",
-        "subheading_color": "#aba49d",
-        "nav_btn_bg": "#ffffff",
-        "nav_btn_hover_bg": "#e69e6c",
-        "nav_border": "#e69e6c",
-        "nav_border_hover": "#e69e6c",
-        "nav_icon": "#e69e6c",
-        "nav_hover_icon": "#ffffff",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 120,
-        "border_thickness": 0,
-        "lazy": true
+        "heading": "Customers Review",
+        "rating": "4.9/5 FROM 500+ REVIEWS"
       }
     }
   },
@@ -750,8 +565,8 @@
     "ghlam_story_section_QnDeVg",
     "ghlam_featured_collection_bwqDW7",
     "ss_feature_1_G9Vh3N",
-    "ss_testimonials_48_ULfkyq",
+    "ghlam_feature_bar_VwYtA3",
     "1783664406d525d157",
-    "ss_instafeed_2_9w6EJk"
+    "ghlam_testimonials_M66E7w"
   ]
 }

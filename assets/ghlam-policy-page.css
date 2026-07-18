@@ -1,0 +1,438 @@
+/* =========================================================
+   GHLAM POLICY PAGE
+   Luxury • Minimal • Editorial • Responsive
+========================================================= */
+
+.ghlam-policy {
+  --ghlam-policy-bg: #f7f3ed;
+  --ghlam-policy-card: #fffdf9;
+  --ghlam-policy-text: #2e2925;
+  --ghlam-policy-muted: #756d65;
+  --ghlam-policy-border: #ded4c8;
+  --ghlam-policy-accent: #a78556;
+  --ghlam-policy-soft-accent: #ece2d4;
+
+  background: var(--ghlam-policy-bg);
+  color: var(--ghlam-policy-text);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ghlam-policy__hero {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 20px 100px;
+  text-align: center;
+  border-bottom: 1px solid var(--ghlam-policy-border);
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(167, 133, 86, 0.12),
+      transparent 45%
+    ),
+    var(--ghlam-policy-bg);
+}
+
+.ghlam-policy__hero::before,
+.ghlam-policy__hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 38px;
+  background: var(--ghlam-policy-accent);
+  transform: translateX(-50%);
+  opacity: 0.7;
+}
+
+.ghlam-policy__hero::before {
+  top: 28px;
+}
+
+.ghlam-policy__hero::after {
+  bottom: 28px;
+}
+
+.ghlam-policy__eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--ghlam-policy-accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ghlam-policy__title {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: var(--heading-font-family);
+  font-size: clamp(42px, 7vw, 88px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.ghlam-policy__description {
+  max-width: 690px;
+  margin: 30px auto 0;
+  color: var(--ghlam-policy-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.ghlam-policy__description p {
+  margin: 0;
+}
+
+.ghlam-policy__updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 0;
+  color: var(--ghlam-policy-muted);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ghlam-policy__updated::before,
+.ghlam-policy__updated::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 1px;
+  background: var(--ghlam-policy-accent);
+}
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
+.ghlam-policy__wrapper {
+  display: grid;
+  gap: 26px;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 90px 0 110px;
+}
+
+/* =========================================================
+   POLICY CARDS
+========================================================= */
+
+.ghlam-policy-card {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--ghlam-policy-border);
+  border-radius: 2px;
+  background: var(--ghlam-policy-card);
+  box-shadow: 0 16px 50px rgba(46, 41, 37, 0.04);
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease;
+}
+
+.ghlam-policy-card:hover {
+  border-color: rgba(167, 133, 86, 0.65);
+  box-shadow: 0 22px 65px rgba(46, 41, 37, 0.08);
+  transform: translateY(-3px);
+}
+
+.ghlam-policy-card__number {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 42px 20px;
+  border-right: 1px solid var(--ghlam-policy-border);
+  color: var(--ghlam-policy-accent);
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.ghlam-policy-card__content {
+  padding: 42px 48px 46px;
+}
+
+.ghlam-policy-card__content h2 {
+  position: relative;
+  margin: 0 0 28px;
+  padding-bottom: 22px;
+  font-family: var(--heading-font-family);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.ghlam-policy-card__content h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  height: 1px;
+  background: var(--ghlam-policy-accent);
+}
+
+.ghlam-policy-card__content .rte {
+  color: var(--ghlam-policy-muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.ghlam-policy-card__content .rte p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.ghlam-policy-card__content .rte p:last-child {
+  margin-bottom: 0;
+}
+
+.ghlam-policy-card__content .rte strong {
+  color: var(--ghlam-policy-text);
+  font-weight: 600;
+}
+
+.ghlam-policy-card__content .rte ul,
+.ghlam-policy-card__content .rte ol {
+  margin: 22px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.ghlam-policy-card__content .rte li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 27px;
+}
+
+.ghlam-policy-card__content .rte li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--ghlam-policy-accent);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.ghlam-policy-card__content .rte a {
+  color: var(--ghlam-policy-text);
+  text-decoration-color: var(--ghlam-policy-accent);
+  text-underline-offset: 4px;
+}
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
+.ghlam-contact-card {
+  position: relative;
+  overflow: hidden;
+  margin-top: 28px;
+  padding: 74px 50px;
+  border: 1px solid var(--ghlam-policy-accent);
+  background: var(--ghlam-policy-text);
+  color: #fff;
+  text-align: center;
+}
+
+.ghlam-contact-card::before,
+.ghlam-contact-card::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.ghlam-contact-card::before {
+  top: -90px;
+  left: -70px;
+}
+
+.ghlam-contact-card::after {
+  right: -75px;
+  bottom: -95px;
+}
+
+.ghlam-contact-card h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.ghlam-contact-card .rte {
+  position: relative;
+  z-index: 1;
+  max-width: 580px;
+  margin: 25px auto 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.ghlam-contact-card .button {
+  position: relative;
+  z-index: 1;
+  min-width: 180px;
+  margin-top: 30px;
+  border: 1px solid var(--ghlam-policy-accent);
+  background: var(--ghlam-policy-accent);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    background 250ms ease,
+    color 250ms ease;
+}
+
+.ghlam-contact-card .button:hover {
+  background: transparent;
+  color: #fff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (max-width: 999px) {
+  .ghlam-policy__hero {
+    padding-top: 95px;
+    padding-bottom: 85px;
+  }
+
+  .ghlam-policy__wrapper {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  .ghlam-policy-card {
+    grid-template-columns: 85px minmax(0, 1fr);
+  }
+
+  .ghlam-policy-card__number {
+    padding: 36px 15px;
+    font-size: 27px;
+  }
+
+  .ghlam-policy-card__content {
+    padding: 36px 34px 40px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 699px) {
+  .ghlam-policy__hero {
+    padding: 84px 18px 72px;
+  }
+
+  .ghlam-policy__hero::before {
+    top: 20px;
+    height: 28px;
+  }
+
+  .ghlam-policy__hero::after {
+    bottom: 20px;
+    height: 28px;
+  }
+
+  .ghlam-policy__eyebrow {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .ghlam-policy__title {
+    font-size: clamp(39px, 12vw, 58px);
+    line-height: 1;
+  }
+
+  .ghlam-policy__description {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .ghlam-policy__updated {
+    margin-top: 24px;
+    font-size: 9px;
+  }
+
+  .ghlam-policy__updated::before,
+  .ghlam-policy__updated::after {
+    width: 16px;
+  }
+
+  .ghlam-policy__wrapper {
+    gap: 18px;
+    padding: 48px 0 65px;
+  }
+
+  .ghlam-policy-card {
+    display: block;
+  }
+
+  .ghlam-policy-card:hover {
+    transform: none;
+  }
+
+  .ghlam-policy-card__number {
+    justify-content: flex-start;
+    padding: 25px 24px 0;
+    border-right: 0;
+    font-size: 24px;
+  }
+
+  .ghlam-policy-card__content {
+    padding: 18px 24px 30px;
+  }
+
+  .ghlam-policy-card__content h2 {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    font-size: 29px;
+  }
+
+  .ghlam-policy-card__content .rte {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .ghlam-contact-card {
+    margin-top: 14px;
+    padding: 55px 24px;
+  }
+
+  .ghlam-contact-card h2 {
+    font-size: 40px;
+  }
+
+  .ghlam-contact-card .rte {
+    font-size: 14px;
+  }
+
+  .ghlam-contact-card .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

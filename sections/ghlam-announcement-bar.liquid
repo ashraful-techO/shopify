@@ -1,0 +1,1167 @@
+{% comment %}
+  GHLAM Custom Announcement Bar
+  File: sections/ghlam-announcement-bar.liquid
+{% endcomment %}
+
+{%- liquid
+  assign show_button = false
+
+  if section.settings.enable_button and section.settings.button_text != blank
+    assign show_button = true
+  endif
+-%}
+
+<section
+  id="GhlamAnnouncement-{{ section.id }}"
+  class="
+    ghlam-announcement
+    {% if section.settings.enable_sticky %}ghlam-announcement--sticky{% endif %}
+    {% if section.settings.enable_countdown %}ghlam-announcement--has-countdown{% endif %}
+  "
+  data-ghlam-announcement
+  data-section-id="{{ section.id }}"
+  style="
+    --ghlam-announcement-bg: {{ section.settings.background_color }};
+    --ghlam-announcement-text: {{ section.settings.text_color }};
+    --ghlam-announcement-accent: {{ section.settings.accent_color }};
+    --ghlam-announcement-button-bg: {{ section.settings.button_background }};
+    --ghlam-announcement-button-text: {{ section.settings.button_text_color }};
+
+    --ghlam-announcement-height: {{ section.settings.desktop_height }}px;
+    --ghlam-announcement-mobile-height: {{ section.settings.mobile_height }}px;
+
+    --ghlam-announcement-text-size: {{ section.settings.desktop_text_size }}px;
+    --ghlam-announcement-mobile-text-size: {{ section.settings.mobile_text_size }}px;
+
+    --ghlam-announcement-timer-size: {{ section.settings.desktop_timer_size }}px;
+    --ghlam-announcement-mobile-timer-size: {{ section.settings.mobile_timer_size }}px;
+
+    --ghlam-announcement-button-size: {{ section.settings.button_text_size }}px;
+    --ghlam-announcement-button-radius: {{ section.settings.button_radius }}px;
+
+    --ghlam-announcement-gap: {{ section.settings.desktop_gap }}px;
+    --ghlam-announcement-mobile-gap: {{ section.settings.mobile_gap }}px;
+
+    --ghlam-announcement-max-width: {{ section.settings.content_width }}px;
+  "
+>
+  <div class="ghlam-announcement__inner">
+    <div class="ghlam-announcement__content">
+      {% if section.settings.message != blank %}
+        <div class="ghlam-announcement__message">
+          {% if section.settings.message_link != blank %}
+            <a
+              href="{{ section.settings.message_link }}"
+              class="ghlam-announcement__message-link"
+              {% if section.settings.open_link_new_tab %}
+                target="_blank"
+                rel="noopener noreferrer"
+              {% endif %}
+            >
+              {% if section.settings.show_message_icon and section.settings.message_icon != blank %}
+                {{
+                  section.settings.message_icon
+                  | image_url: width: 100
+                  | image_tag:
+                    class: 'ghlam-announcement__message-icon',
+                    loading: 'eager',
+                    widths: '24, 32, 40, 48, 64, 80, 100',
+                    alt: section.settings.message_icon.alt
+                }}
+              {% endif %}
+
+              <span class="ghlam-announcement__message-text">
+                {{ section.settings.message }}
+              </span>
+            </a>
+          {% else %}
+            <div class="ghlam-announcement__message-inner">
+              {% if section.settings.show_message_icon and section.settings.message_icon != blank %}
+                {{
+                  section.settings.message_icon
+                  | image_url: width: 100
+                  | image_tag:
+                    class: 'ghlam-announcement__message-icon',
+                    loading: 'eager',
+                    widths: '24, 32, 40, 48, 64, 80, 100',
+                    alt: section.settings.message_icon.alt
+                }}
+              {% endif %}
+
+              <span class="ghlam-announcement__message-text">
+                {{ section.settings.message }}
+              </span>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.enable_countdown %}
+        <div
+          class="ghlam-announcement__countdown"
+          data-ghlam-countdown
+          data-end-date="{{ section.settings.countdown_end_date | escape }}"
+          data-expired-action="{{ section.settings.expired_action }}"
+          data-expired-message="{{ section.settings.expired_message | escape }}"
+          role="timer"
+          aria-live="polite"
+          aria-label="Sale countdown"
+        >
+          {% if section.settings.show_countdown_labels %}
+            <div class="ghlam-announcement__time-group">
+              <span class="ghlam-announcement__time" data-days>00</span>
+              <span class="ghlam-announcement__label">
+                {{ section.settings.days_label }}
+              </span>
+            </div>
+
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+
+            <div class="ghlam-announcement__time-group">
+              <span class="ghlam-announcement__time" data-hours>00</span>
+              <span class="ghlam-announcement__label">
+                {{ section.settings.hours_label }}
+              </span>
+            </div>
+
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+
+            <div class="ghlam-announcement__time-group">
+              <span class="ghlam-announcement__time" data-minutes>00</span>
+              <span class="ghlam-announcement__label">
+                {{ section.settings.minutes_label }}
+              </span>
+            </div>
+
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+
+            <div class="ghlam-announcement__time-group">
+              <span class="ghlam-announcement__time" data-seconds>00</span>
+              <span class="ghlam-announcement__label">
+                {{ section.settings.seconds_label }}
+              </span>
+            </div>
+          {% else %}
+            <span class="ghlam-announcement__time" data-days>00</span>
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+            <span class="ghlam-announcement__time" data-hours>00</span>
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+            <span class="ghlam-announcement__time" data-minutes>00</span>
+            <span class="ghlam-announcement__separator">
+              {{ section.settings.timer_separator }}
+            </span>
+            <span class="ghlam-announcement__time" data-seconds>00</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if show_button %}
+        {% if section.settings.button_link != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="ghlam-announcement__button"
+            {% if section.settings.open_button_new_tab %}
+              target="_blank"
+              rel="noopener noreferrer"
+            {% endif %}
+          >
+            {{ section.settings.button_text }}
+          </a>
+        {% else %}
+          <span class="ghlam-announcement__button">
+            {{ section.settings.button_text }}
+          </span>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    {% if section.settings.enable_close_button %}
+      <button
+        type="button"
+        class="ghlam-announcement__close"
+        aria-label="Close announcement"
+        data-ghlam-announcement-close
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M6 6L18 18M18 6L6 18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #GhlamAnnouncement-{{ section.id }} {
+    --ghlam-announcement-icon-size: {{ section.settings.desktop_icon_size }}px;
+    --ghlam-announcement-mobile-icon-size: {{ section.settings.mobile_icon_size }}px;
+    --ghlam-announcement-icon-gap: {{ section.settings.icon_gap }}px;
+
+    position: relative;
+    z-index: 30;
+    width: 100%;
+    min-height: var(--ghlam-announcement-height);
+    background: var(--ghlam-announcement-bg);
+    color: var(--ghlam-announcement-text);
+    overflow: hidden;
+  }
+
+  #GhlamAnnouncement-{{ section.id }}.ghlam-announcement--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__inner {
+    position: relative;
+    width: min(100%, var(--ghlam-announcement-max-width));
+    min-height: var(--ghlam-announcement-height);
+    margin-inline: auto;
+    padding: 10px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    justify-content:
+      {% case section.settings.desktop_alignment %}
+        {% when 'left' %}
+          flex-start
+        {% when 'right' %}
+          flex-end
+        {% else %}
+          center
+      {% endcase %};
+
+    gap: var(--ghlam-announcement-gap);
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message {
+    margin: 0;
+    color: inherit;
+    font-size: var(--ghlam-announcement-text-size);
+    font-weight: {{ section.settings.text_weight }};
+    line-height: 1.25;
+    letter-spacing: {{ section.settings.letter_spacing | divided_by: 100.0 }}em;
+    text-align: center;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-link,
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ghlam-announcement-icon-gap);
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-link:hover {
+    color: var(--ghlam-announcement-accent);
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: var(--ghlam-announcement-icon-size);
+    height: var(--ghlam-announcement-icon-size);
+    max-width: none;
+    object-fit: contain;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-text {
+    display: inline-block;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__countdown {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    color: inherit;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__time-group {
+    min-width: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__time,
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__separator {
+    display: inline-block;
+    color: inherit;
+    font-size: var(--ghlam-announcement-timer-size);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__separator {
+    padding-top: 1px;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__label {
+    color: inherit;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__expired-message {
+    display: inline-block;
+    font-size: var(--ghlam-announcement-text-size);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__button {
+    flex-shrink: 0;
+    min-height: 46px;
+    padding: 12px 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ghlam-announcement-button-bg);
+    border-radius: var(--ghlam-announcement-button-radius);
+    background: var(--ghlam-announcement-button-bg);
+    color: var(--ghlam-announcement-button-text);
+    font-size: var(--ghlam-announcement-button-size);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+
+    text-transform:
+      {% if section.settings.button_uppercase %}
+        uppercase
+      {% else %}
+        none
+      {% endif %};
+
+    cursor: pointer;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__button:hover {
+    color: var(--ghlam-announcement-button-text);
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__close:hover {
+    opacity: 1;
+  }
+
+  #GhlamAnnouncement-{{ section.id }}[hidden],
+  #GhlamAnnouncement-{{ section.id }}
+    .ghlam-announcement__countdown[hidden] {
+    display: none !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #GhlamAnnouncement-{{ section.id }} {
+      min-height: var(--ghlam-announcement-mobile-height);
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__inner {
+      min-height: var(--ghlam-announcement-mobile-height);
+
+      padding:
+        {{ section.settings.mobile_vertical_padding }}px
+        {% if section.settings.enable_close_button %}
+          42px
+        {% else %}
+          16px
+        {% endif %};
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__content {
+      flex-direction:
+        {% if section.settings.mobile_layout == 'row' %}
+          row
+        {% else %}
+          column
+        {% endif %};
+
+      justify-content: center;
+      gap: var(--ghlam-announcement-mobile-gap);
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message {
+      width: 100%;
+      font-size: var(--ghlam-announcement-mobile-text-size);
+
+      text-align:
+        {% case section.settings.mobile_alignment %}
+          {% when 'left' %}
+            left
+          {% when 'right' %}
+            right
+          {% else %}
+            center
+        {% endcase %};
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-link,
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-inner {
+      width: 100%;
+
+      justify-content:
+        {% case section.settings.mobile_alignment %}
+          {% when 'left' %}
+            flex-start
+          {% when 'right' %}
+            flex-end
+          {% else %}
+            center
+        {% endcase %};
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__message-icon {
+      width: var(--ghlam-announcement-mobile-icon-size);
+      height: var(--ghlam-announcement-mobile-icon-size);
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__countdown {
+      width: auto;
+      gap: 5px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__time-group {
+      min-width: 38px;
+      gap: 3px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__time,
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__separator {
+      font-size: var(--ghlam-announcement-mobile-timer-size);
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__label {
+      font-size: 8px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__expired-message {
+      font-size: var(--ghlam-announcement-mobile-text-size);
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__button {
+      min-height: 40px;
+      padding: 10px 20px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__close {
+      top: 12px;
+      right: 6px;
+      transform: none;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__countdown {
+      gap: 3px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__time-group {
+      min-width: 34px;
+    }
+
+    #GhlamAnnouncement-{{ section.id }} .ghlam-announcement__button {
+      width: 100%;
+      max-width: 220px;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const sectionId = 'GhlamAnnouncement-{{ section.id }}';
+
+    function initGhlamAnnouncement() {
+      const announcement = document.getElementById(sectionId);
+
+      if (!announcement || announcement.dataset.initialized === 'true') {
+        return;
+      }
+
+      announcement.dataset.initialized = 'true';
+
+      const closeButton = announcement.querySelector(
+        '[data-ghlam-announcement-close]'
+      );
+
+      const storageKey = `ghlam-announcement-closed-${announcement.dataset.sectionId}`;
+
+      {% if section.settings.remember_close %}
+        try {
+          if (localStorage.getItem(storageKey) === 'true') {
+            announcement.hidden = true;
+            return;
+          }
+        } catch (error) {
+          console.warn('Announcement storage is unavailable.', error);
+        }
+      {% endif %}
+
+      if (closeButton) {
+        closeButton.addEventListener('click', () => {
+          announcement.hidden = true;
+
+          {% if section.settings.remember_close %}
+            try {
+              localStorage.setItem(storageKey, 'true');
+            } catch (error) {
+              console.warn('Announcement storage is unavailable.', error);
+            }
+          {% endif %}
+        });
+      }
+
+      const countdown = announcement.querySelector('[data-ghlam-countdown]');
+
+      if (!countdown) {
+        return;
+      }
+
+      const endDateValue = countdown.dataset.endDate;
+
+      if (!endDateValue) {
+        console.warn(
+          'GHLAM announcement countdown: please add an end date in the theme editor.'
+        );
+        return;
+      }
+
+      const endDate = new Date(endDateValue).getTime();
+
+      if (Number.isNaN(endDate)) {
+        console.warn(
+          'GHLAM announcement countdown: invalid date format. Use YYYY-MM-DDTHH:MM:SS.'
+        );
+        return;
+      }
+
+      const daysElement = countdown.querySelector('[data-days]');
+      const hoursElement = countdown.querySelector('[data-hours]');
+      const minutesElement = countdown.querySelector('[data-minutes]');
+      const secondsElement = countdown.querySelector('[data-seconds]');
+
+      const padNumber = (number) => String(number).padStart(2, '0');
+
+      let countdownInterval;
+
+      function handleExpiredCountdown() {
+        const expiredAction = countdown.dataset.expiredAction;
+        const expiredMessage = countdown.dataset.expiredMessage;
+
+        if (expiredAction === 'hide_bar') {
+          announcement.hidden = true;
+          return;
+        }
+
+        if (expiredAction === 'hide_timer') {
+          countdown.hidden = true;
+          return;
+        }
+
+        if (expiredAction === 'show_message') {
+          countdown.innerHTML = '';
+
+          const message = document.createElement('span');
+          message.className = 'ghlam-announcement__expired-message';
+          message.textContent = expiredMessage || 'Sale ended';
+
+          countdown.appendChild(message);
+        }
+      }
+
+      function updateCountdown() {
+        const currentTime = Date.now();
+        const distance = endDate - currentTime;
+
+        if (distance <= 0) {
+          if (daysElement) daysElement.textContent = '00';
+          if (hoursElement) hoursElement.textContent = '00';
+          if (minutesElement) minutesElement.textContent = '00';
+          if (secondsElement) secondsElement.textContent = '00';
+
+          clearInterval(countdownInterval);
+          handleExpiredCountdown();
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (daysElement) daysElement.textContent = padNumber(days);
+        if (hoursElement) hoursElement.textContent = padNumber(hours);
+        if (minutesElement) minutesElement.textContent = padNumber(minutes);
+        if (secondsElement) secondsElement.textContent = padNumber(seconds);
+      }
+
+      updateCountdown();
+      countdownInterval = window.setInterval(updateCountdown, 1000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGhlamAnnouncement);
+    } else {
+      initGhlamAnnouncement();
+    }
+
+    document.addEventListener('shopify:section:load', (event) => {
+      if (event.target.querySelector(`#${sectionId}`)) {
+        const announcement = document.getElementById(sectionId);
+
+        if (announcement) {
+          announcement.dataset.initialized = 'false';
+        }
+
+        initGhlamAnnouncement();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "GHLAM announcement bar",
+  "tag": "section",
+  "class": "shopify-section--ghlam-announcement",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement content"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Announcement text",
+      "default": "Last Call Summer Sale! 70% Off"
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": "Announcement text link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_link_new_tab",
+      "label": "Open announcement link in a new tab",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "desktop_text_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop text size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile text size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "text_weight",
+      "label": "Text weight",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "label": "Letter spacing",
+      "default": 2,
+      "info": "Measured as a percentage of one character width."
+    },
+
+    {
+      "type": "header",
+      "content": "Announcement icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_message_icon",
+      "label": "Show icon before text",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "message_icon",
+      "label": "Icon image"
+    },
+    {
+      "type": "range",
+      "id": "desktop_icon_size",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop icon size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile icon size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between icon and text",
+      "default": 8
+    },
+
+    {
+      "type": "header",
+      "content": "Countdown timer"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Show countdown timer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_end_date",
+      "label": "Countdown end date",
+      "default": "2026-11-27T23:59:59",
+      "info": "Use this format: YYYY-MM-DDTHH:MM:SS. Example: 2026-11-27T23:59:59."
+    },
+    {
+      "type": "range",
+      "id": "desktop_timer_size",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop timer size",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "mobile_timer_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile timer size",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "timer_separator",
+      "label": "Timer separator",
+      "default": ":"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown_labels",
+      "label": "Show days, hours, minutes and seconds labels",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "days_label",
+      "label": "Days label",
+      "default": "Days"
+    },
+    {
+      "type": "text",
+      "id": "hours_label",
+      "label": "Hours label",
+      "default": "Hrs"
+    },
+    {
+      "type": "text",
+      "id": "minutes_label",
+      "label": "Minutes label",
+      "default": "Mins"
+    },
+    {
+      "type": "text",
+      "id": "seconds_label",
+      "label": "Seconds label",
+      "default": "Secs"
+    },
+    {
+      "type": "select",
+      "id": "expired_action",
+      "label": "When the timer ends",
+      "default": "show_zero",
+      "options": [
+        {
+          "value": "show_zero",
+          "label": "Keep showing 00:00:00:00"
+        },
+        {
+          "value": "show_message",
+          "label": "Show an expired message"
+        },
+        {
+          "value": "hide_timer",
+          "label": "Hide the timer"
+        },
+        {
+          "value": "hide_bar",
+          "label": "Hide the entire announcement bar"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "expired_message",
+      "label": "Expired message",
+      "default": "Sale ended"
+    },
+
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_button_new_tab",
+      "label": "Open button link in a new tab",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Button text size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Button corner radius",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "button_uppercase",
+      "label": "Uppercase button text",
+      "default": true
+    },
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text and timer",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Link hover color",
+      "default": "#F4B942"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#EE58AA"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_alignment",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 40,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 94
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 5,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between items",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 600,
+      "max": 2000,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum content width",
+      "default": 1400
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile content layout",
+      "default": "column",
+      "options": [
+        {
+          "value": "column",
+          "label": "Stacked"
+        },
+        {
+          "value": "row",
+          "label": "Single row"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "Mobile text alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 45,
+      "max": 220,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile minimum height",
+      "default": 135
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile space between items",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_padding",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile vertical padding",
+      "default": 14
+    },
+
+    {
+      "type": "header",
+      "content": "Additional options"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Make announcement bar sticky",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_close_button",
+      "label": "Show close button",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remember_close",
+      "label": "Remember when visitor closes the bar",
+      "default": true,
+      "info": "The announcement remains hidden on that visitor's browser."
+    }
+  ],
+  "presets": [
+    {
+      "name": "GHLAM announcement bar"
+    }
+  ]
+}
+{% endschema %}

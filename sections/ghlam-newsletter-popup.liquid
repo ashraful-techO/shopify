@@ -1,0 +1,333 @@
+{%- unless request.page_type == 'captcha' -%}
+  {%- unless section.settings.show_only_on_index and template.name != 'index' -%}
+    {%- unless section.settings.hide_for_account_holders and customer -%}
+      {%- assign posted_successfully = false -%}
+      {%- assign newsletter_id = 'ghlam-newsletter-' | append: section.id -%}
+
+      {%- capture temporary_form -%}
+        {%- form 'customer', id: newsletter_id, class: 'form' -%}
+          {%- assign posted_successfully = form.posted_successfully? -%}
+        {%- endform -%}
+      {%- endcapture -%}
+
+      {{ 'ghlam-newsletter-popup.css' | asset_url | stylesheet_tag }}
+
+      <newsletter-popup
+        id="GhlamNewsletterPopup-{{ section.id }}"
+        class="
+          pop-in
+          newsletter-popup
+          ghlam-newsletter-popup
+          color-scheme
+          color-scheme--{{ section.settings.color_scheme.id }}
+        "
+        title="{{ section.settings.heading | escape }}"
+        apparition-delay="{{ section.settings.apparition_delay }}"
+        {% if section.settings.show_only_once %}
+          only-once
+        {% endif %}
+        {% if posted_successfully %}
+          open
+        {% endif %}
+        handle-editor-events
+        style="
+          --ghlam-popup-width: {{ section.settings.desktop_width }}px;
+          --ghlam-popup-radius: {{ section.settings.border_radius }}px;
+          --ghlam-popup-background: {{ section.settings.background_color }};
+          --ghlam-popup-text: {{ section.settings.text_color }};
+          --ghlam-popup-accent: {{ section.settings.accent_color }};
+          --ghlam-popup-button-background: {{ section.settings.button_background }};
+          --ghlam-popup-button-text: {{ section.settings.button_text_color }};
+        "
+      >
+        <dialog-close-button class="contents">
+          <button
+            type="button"
+            class="pop-in__close-button ghlam-newsletter-popup__close tap-area"
+            aria-label="{{ 'general.accessibility.close' | t }}"
+          >
+            <span class="sr-only">
+              {{- 'general.accessibility.close' | t -}}
+            </span>
+
+            {%- render 'icon' with 'close' -%}
+          </button>
+        </dialog-close-button>
+
+        <div class="ghlam-newsletter-popup__inner">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="ghlam-newsletter-popup__eyebrow">
+              {{ section.settings.eyebrow }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.offer_text != blank -%}
+            <p class="ghlam-newsletter-popup__offer">
+              {{ section.settings.offer_text }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 class="ghlam-newsletter-popup__heading">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            <div class="ghlam-newsletter-popup__content prose">
+              {{ section.settings.content }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.show_newsletter_form -%}
+            {%- form 'customer', id: newsletter_id, class: 'form ghlam-newsletter-popup__form' -%}
+              <input
+                type="hidden"
+                name="contact[tags]"
+                value="newsletter,ghlam-newsletter-popup"
+              >
+
+              {%- if form.posted_successfully? -%}
+                <div class="ghlam-newsletter-popup__success">
+                  {%- if section.settings.success_heading != blank -%}
+                    <p class="ghlam-newsletter-popup__success-heading">
+                      {{ section.settings.success_heading }}
+                    </p>
+                  {%- endif -%}
+
+                  {%- if section.settings.success_message != blank -%}
+                    <div class="prose">
+                      {{ section.settings.success_message }}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                <script>
+                  localStorage.setItem('theme:popup-filled', 'true');
+                </script>
+              {%- else -%}
+                {%- if form.errors -%}
+                  {%- assign error_content = form.errors | default_errors -%}
+
+                  {%- render 'banner', status: 'error', content: error_content, text_alignment: 'center' -%}
+                {%- endif -%}
+
+                <div class="ghlam-newsletter-popup__field">
+                  <label
+                    class="sr-only"
+                    for="GhlamNewsletterEmail-{{ section.id }}"
+                  >
+                    {{ 'blog.comments.email' | t }}
+                  </label>
+
+                  <input
+                    id="GhlamNewsletterEmail-{{ section.id }}"
+                    class="ghlam-newsletter-popup__input"
+                    type="email"
+                    name="contact[email]"
+                    value="{{ customer.email }}"
+                    placeholder="{{ section.settings.email_placeholder | escape }}"
+                    autocomplete="email"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    required
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="button ghlam-newsletter-popup__button"
+                >
+                  <span>{{ section.settings.button_text }}</span>
+                </button>
+              {%- endif -%}
+            {%- endform -%}
+          {%- endif -%}
+
+          {%- if section.settings.footer_text != blank -%}
+            <div class="ghlam-newsletter-popup__footer-text">
+              {{ section.settings.footer_text }}
+            </div>
+          {%- endif -%}
+        </div>
+      </newsletter-popup>
+    {%- endunless -%}
+  {%- endunless -%}
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "GHLAM newsletter popup",
+  "class": "shopify-section--popup",
+  "enabled_on": {
+    "groups": ["custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Welcome to GHLAM"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer text",
+      "default": "10% OFF"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Enjoy 10% off your first order"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description",
+      "default": "<p>Join our modest community and receive exclusive access to new arrivals, styling inspiration and special offers.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Unlock 10% off"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "<p>By subscribing, you agree to receive marketing emails. You can unsubscribe at any time.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Success message"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "success_heading",
+      "label": "Success heading",
+      "default": "Welcome to GHLAM"
+    },
+    {
+      "type": "richtext",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "<p>Thank you for subscribing. Please check your inbox for your exclusive offer.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Display"
+    },
+    {
+      "type": "range",
+      "id": "apparition_delay",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "unit": "sec",
+      "label": "Delay before opening",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_on_index",
+      "label": "Show only on home page",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_for_account_holders",
+      "label": "Hide for logged-in customers",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_once",
+      "label": "Show only once",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter_form",
+      "label": "Show newsletter form",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Design"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F5F1E8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#211F1C"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#A58A5E"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#211F1C"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width",
+      "min": 400,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop width",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Corner radius",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "GHLAM newsletter popup"
+    }
+  ]
+}
+{% endschema %}

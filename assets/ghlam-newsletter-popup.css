@@ -1,0 +1,364 @@
+/* ========================================
+   GHLAM NEWSLETTER POPUP
+   Uses Prestige's newsletter-popup element,
+   popup behavior and dialog controls.
+======================================== */
+
+.ghlam-newsletter-popup {
+    width: min(var(--ghlam-popup-width), calc(100vw - 32px));
+    max-width: var(--ghlam-popup-width);
+    padding: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(33, 31, 28, 0.16);
+    border-radius: var(--ghlam-popup-radius);
+
+    background: var(--ghlam-popup-background);
+    color: var(--ghlam-popup-text);
+
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+}
+
+/* Inner content */
+
+.ghlam-newsletter-popup__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding: 46px 42px 38px;
+
+    text-align: center;
+}
+
+/* Close button */
+
+.ghlam-newsletter-popup__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--ghlam-popup-text);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.25s ease;
+}
+
+.ghlam-newsletter-popup__close:hover {
+    opacity: 0.55;
+    transform: rotate(90deg);
+}
+
+/* Eyebrow */
+
+.ghlam-newsletter-popup__eyebrow {
+    margin: 0 0 14px;
+
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    color: color-mix(in srgb,
+            var(--ghlam-popup-text) 65%,
+            transparent);
+}
+
+/* Offer badge */
+
+.ghlam-newsletter-popup__offer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+    margin: 0 0 20px;
+    padding: 8px 18px;
+
+    border: 1px solid var(--ghlam-popup-accent);
+
+    color: var(--ghlam-popup-accent);
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Heading */
+
+.ghlam-newsletter-popup__heading {
+    max-width: 430px;
+    margin: 0;
+
+    font-family: var(--heading-font-family);
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: var(--heading-font-weight);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+
+    color: var(--ghlam-popup-text);
+}
+
+/* Description */
+
+.ghlam-newsletter-popup__content {
+    max-width: 410px;
+    margin-top: 16px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: color-mix(in srgb,
+            var(--ghlam-popup-text) 72%,
+            transparent);
+}
+
+.ghlam-newsletter-popup__content p {
+    margin: 0;
+}
+
+/* Form */
+
+.ghlam-newsletter-popup__form {
+    width: 100%;
+    margin-top: 26px;
+    gap: 12px;
+}
+
+.ghlam-newsletter-popup__field {
+    width: 100%;
+}
+
+/* Email input */
+
+.ghlam-newsletter-popup__input {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 16px;
+
+    border: 1px solid color-mix(in srgb,
+            var(--ghlam-popup-text) 24%,
+            transparent);
+
+    border-radius: 0;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.24);
+    color: var(--ghlam-popup-text);
+
+    font: inherit;
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.ghlam-newsletter-popup__input::placeholder {
+    color: color-mix(in srgb,
+            var(--ghlam-popup-text) 50%,
+            transparent);
+}
+
+.ghlam-newsletter-popup__input:hover {
+    border-color: color-mix(in srgb,
+            var(--ghlam-popup-text) 50%,
+            transparent);
+}
+
+.ghlam-newsletter-popup__input:focus {
+    border-color: var(--ghlam-popup-text);
+    background: rgba(255, 255, 255, 0.65);
+}
+
+/* Submit button */
+
+.ghlam-newsletter-popup__button {
+    width: 100%;
+    min-height: 52px;
+
+    border: 1px solid var(--ghlam-popup-button-background);
+    border-radius: 0;
+
+    background: var(--ghlam-popup-button-background);
+    color: var(--ghlam-popup-button-text);
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.ghlam-newsletter-popup__button:hover {
+    /* background: transparent; */
+    color: var(--ghlam-popup-button-background);
+}
+
+/* Legal/footer text */
+
+.ghlam-newsletter-popup__footer-text {
+    max-width: 390px;
+    margin-top: 16px;
+
+    font-size: 10px;
+    line-height: 1.6;
+
+    color: color-mix(in srgb,
+            var(--ghlam-popup-text) 50%,
+            transparent);
+}
+
+.ghlam-newsletter-popup__footer-text p {
+    margin: 0;
+}
+
+/* Success message */
+
+.ghlam-newsletter-popup__success {
+    padding: 22px 18px;
+
+    border: 1px solid color-mix(in srgb,
+            var(--ghlam-popup-text) 16%,
+            transparent);
+}
+
+.ghlam-newsletter-popup__success-heading {
+    margin: 0 0 8px;
+
+    font-family: var(--heading-font-family);
+    font-size: 23px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.ghlam-newsletter-popup__success .prose {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Tablet and mobile */
+
+@media screen and (max-width: 699px) {
+    .ghlam-newsletter-popup {
+        width: calc(100vw - 24px);
+        max-width: none;
+    }
+
+    .ghlam-newsletter-popup__inner {
+        padding: 42px 22px 28px;
+    }
+
+    .ghlam-newsletter-popup__heading {
+        font-size: 25px;
+    }
+
+    .ghlam-newsletter-popup__content {
+        margin-top: 13px;
+        font-size: 12px;
+    }
+
+    .ghlam-newsletter-popup__form {
+        margin-top: 22px;
+    }
+
+    .ghlam-newsletter-popup__input,
+    .ghlam-newsletter-popup__button {
+        min-height: 50px;
+    }
+}
+
+/* ========================================
+   FORCE POPUP BOX TO SCREEN CENTER
+   DESKTOP + TABLET + MOBILE
+======================================== */
+
+newsletter-popup.ghlam-newsletter-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    margin: 0 !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: min(var(--ghlam-popup-width), calc(100vw - 32px));
+    max-width: var(--ghlam-popup-width);
+
+    z-index: 9999;
+}
+
+/* Keep popup centered when Prestige opens/animates it */
+
+newsletter-popup.ghlam-newsletter-popup[open],
+newsletter-popup.ghlam-newsletter-popup.is-visible {
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    transform: translate(-50%, -50%) !important;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 999px) {
+    newsletter-popup.ghlam-newsletter-popup {
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: min(var(--ghlam-popup-width), calc(100vw - 28px));
+        max-width: calc(100vw - 28px);
+
+        transform: translate(-50%, -50%) !important;
+    }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 699px) {
+    newsletter-popup.ghlam-newsletter-popup {
+        position: fixed !important;
+
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+        max-height: calc(100dvh - 24px);
+
+        margin: 0 !important;
+        overflow-y: auto;
+
+        transform: translate(-50%, -50%) !important;
+    }
+}
+
+/* Small mobile */
+
+@media screen and (max-width: 390px) {
+    newsletter-popup.ghlam-newsletter-popup {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        max-height: calc(100dvh - 16px);
+    }
+}
